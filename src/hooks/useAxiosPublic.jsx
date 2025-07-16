@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 
 const axiosPublic = axios.create({
-  baseURL: "https://scholar-link-server.vercel.app",
+  baseURL: "http://localhost:4000",
 });
 
 const useAxiosPublic = () => {

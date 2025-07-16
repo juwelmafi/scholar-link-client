@@ -19,12 +19,13 @@ const ManageScholarships = () => {
   } = useQuery({
     queryKey: ["allScholarshipsForModerator"],
     queryFn: async () => {
-      const res = await axiosSecure.get("/scholarships");
+      const res = await axiosSecure.get("/all-scholarships");
       return res.data;
     },
   });
 
-  const allScholarships = scholarships?.scholarships;
+  const allScholarships = scholarships;
+
 
   // Handle delete
   const handleDelete = async (id) => {
@@ -124,7 +125,7 @@ const ManageScholarships = () => {
         Manage Scholarships
       </h2>
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto ">
         <table className="table">
           <thead>
             <tr className="bg-base-200">

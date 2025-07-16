@@ -35,7 +35,7 @@ const TopScholarshipSection = () => {
         {topScholarships.map((scholarship) => (
           <div
             key={scholarship._id}
-            className="border rounded-lg shadow hover:shadow-lg transition duration-300"
+            className="rounded-lg shadow-md hover:shadow-lg transition duration-300"
           >
             <img
               src={scholarship.universityImage}

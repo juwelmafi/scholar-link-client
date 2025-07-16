@@ -15,6 +15,7 @@ import {
   FaChartBar,
 } from "react-icons/fa";
 import useUserRole from "../hooks/useUserRole";
+import Logo from "../shared/Logo";
 
 const DashLayout = () => {
   const { role, roleLoading } = useUserRole();
@@ -59,22 +60,14 @@ const DashLayout = () => {
           ></label>
           <ul className="menu p-4 md:w-72 w-54 min-h-full bg-base-200 text-base-content">
             {/* Sidebar Items */}
-
-            {!roleLoading && role === "admin" && (
-              <li>
-                <NavLink
-                  to="/dashboard"
-                  className="flex items-center gap-2 hover:text-emerald-500"
-                >
-                  <FaChartBar /> Analytics
-                </NavLink>
-              </li>
-            )}
+            <li>
+              <Logo></Logo>
+            </li>
 
             {!roleLoading && role === "user" && (
               <li>
                 <NavLink
-                  to="/dashboard/my-profile"
+                  to="/dashboard"
                   className="flex items-center gap-2 hover:text-emerald-500"
                 >
                   <FaUser /> My Profile
@@ -84,7 +77,7 @@ const DashLayout = () => {
             {!roleLoading && role === "moderator" && (
               <li>
                 <NavLink
-                  to="/dashboard/my-profile"
+                  to="/dashboard"
                   className="flex items-center gap-2 hover:text-emerald-500"
                 >
                   <FaUser /> My Profile
@@ -94,10 +87,20 @@ const DashLayout = () => {
             {!roleLoading && role === "admin" && (
               <li>
                 <NavLink
-                  to="/dashboard/my-profile"
+                  to="/dashboard"
                   className="flex items-center gap-2 hover:text-emerald-500"
                 >
                   <FaUser /> Admin Profile
+                </NavLink>
+              </li>
+            )}
+            {!roleLoading && role === "admin" && (
+              <li>
+                <NavLink
+                  to="/dashboard/analytics"
+                  className="flex items-center gap-2 hover:text-emerald-500"
+                >
+                  <FaChartBar /> Analytics
                 </NavLink>
               </li>
             )}

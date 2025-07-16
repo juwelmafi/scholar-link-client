@@ -18,7 +18,6 @@ const AllScholarshipsPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(6); // Default cards per page
-
   const { data, isLoading, isError } = useQuery({
     queryKey: ["scholarships", searchTerm, page, limit],
     queryFn: async () => {

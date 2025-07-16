@@ -79,6 +79,10 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: <MyProfile></MyProfile>,
+      },
+      {
+        path: 'analytics',
         element: <AdminAnalytics></AdminAnalytics>,
       },
       {
@@ -88,10 +92,6 @@ export const router = createBrowserRouter([
             <AddScholarship />
           </AdminModRout>
         ),
-      },
-      {
-        path: "my-profile",
-        element: <MyProfile></MyProfile>,
       },
       {
         path: "my-applications",
