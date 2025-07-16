@@ -1,0 +1,221 @@
+import React from "react";
+import { Link, NavLink, Outlet } from "react-router";
+// import Logo from "../../Pages/shared/Logo/Logo";
+import {
+  FaHome,
+  FaUser,
+  FaPlus,
+  FaList,
+  FaStar,
+  FaTasks,
+  FaClipboardList,
+  FaFileAlt,
+  FaComments,
+  FaUserCog,
+  FaChartBar,
+} from "react-icons/fa";
+import useUserRole from "../hooks/useUserRole";
+
+const DashLayout = () => {
+  const { role, roleLoading } = useUserRole();
+  return (
+    <div>
+      <div className="drawer lg:drawer-open">
+        <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+        <div className="drawer-content flex flex-col">
+          {/* Navbar for small screen */}
+          <div className="navbar bg-base-300 lg:hidden">
+            <div className="flex-none">
+              <label htmlFor="my-drawer" className="btn btn-square btn-ghost">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </label>
+            </div>
+            <div className="flex-1 px-2">{/* <Logo></Logo> */}</div>
+          </div>
+
+          {/* Page Content */}
+          <Outlet></Outlet>
+        </div>
+
+        {/* Sidebar (left) */}
+        <div className="drawer-side">
+          <label
+            htmlFor="my-drawer"
+            aria-label="close sidebar"
+            className="drawer-overlay"
+          ></label>
+          <ul className="menu p-4 md:w-72 w-54 min-h-full bg-base-200 text-base-content">
+            {/* Sidebar Items */}
+
+            {!roleLoading && role === "admin" && (
+              <li>
+                <NavLink
+                  to="/dashboard"
+                  className="flex items-center gap-2 hover:text-emerald-500"
+                >
+                  <FaChartBar /> Analytics
+                </NavLink>
+              </li>
+            )}
+
+            {!roleLoading && role === "user" && (
+              <li>
+                <NavLink
+                  to="/dashboard/my-profile"
+                  className="flex items-center gap-2 hover:text-emerald-500"
+                >
+                  <FaUser /> My Profile
+                </NavLink>
+              </li>
+            )}
+            {!roleLoading && role === "moderator" && (
+              <li>
+                <NavLink
+                  to="/dashboard/my-profile"
+                  className="flex items-center gap-2 hover:text-emerald-500"
+                >
+                  <FaUser /> My Profile
+                </NavLink>
+              </li>
+            )}
+            {!roleLoading && role === "admin" && (
+              <li>
+                <NavLink
+                  to="/dashboard/my-profile"
+                  className="flex items-center gap-2 hover:text-emerald-500"
+                >
+                  <FaUser /> Admin Profile
+                </NavLink>
+              </li>
+            )}
+            {!roleLoading && role === "admin" && (
+              <li>
+                <NavLink
+                  to="/dashboard/add-scholarship"
+                  className="flex items-center gap-2 hover:text-emerald-500"
+                >
+                  <FaPlus /> Add Scholarship
+                </NavLink>
+              </li>
+            )}
+            {!roleLoading && role === "moderator" && (
+              <li>
+                <NavLink
+                  to="/dashboard/add-scholarship"
+                  className="flex items-center gap-2 hover:text-emerald-500"
+                >
+                  <FaPlus /> Add Scholarship
+                </NavLink>
+              </li>
+            )}
+            {!roleLoading && role === "user" && (
+              <li>
+                <NavLink
+                  to="/dashboard/my-applications"
+                  className="flex items-center gap-2 hover:text-emerald-500"
+                >
+                  <FaList /> My Applications
+                </NavLink>
+              </li>
+            )}
+            {!roleLoading && role === "user" && (
+              <li>
+                <NavLink
+                  to="/dashboard/my-reviews"
+                  className="flex items-center gap-2 hover:text-emerald-500"
+                >
+                  <FaStar /> My Reviews
+                </NavLink>
+              </li>
+            )}
+            {!roleLoading && role === "admin" && (
+              <li>
+                <NavLink
+                  to="/dashboard/manage-scholarships"
+                  className="flex items-center gap-2 hover:text-emerald-500"
+                >
+                  <FaClipboardList /> Manage Scholarships
+                </NavLink>
+              </li>
+            )}
+            {!roleLoading && role === "moderator" && (
+              <li>
+                <NavLink
+                  to="/dashboard/manage-scholarships"
+                  className="flex items-center gap-2 hover:text-emerald-500"
+                >
+                  <FaClipboardList /> Manage Scholarships
+                </NavLink>
+              </li>
+            )}
+            {!roleLoading && role === "moderator" && (
+              <li>
+                <NavLink
+                  to="/dashboard/all-applied-shcolarsips"
+                  className="flex items-center gap-2 hover:text-emerald-500"
+                >
+                  <FaFileAlt /> All Applied Scholarships
+                </NavLink>
+              </li>
+            )}
+            {role === "admin" && (
+              <li>
+                <NavLink
+                  to="/dashboard/all-applied-shcolarsips"
+                  className="flex items-center gap-2 hover:text-emerald-500"
+                >
+                  <FaFileAlt /> Manage Applied Scholarships
+                </NavLink>
+              </li>
+            )}
+            {!roleLoading && role === "moderator" && (
+              <li>
+                <NavLink
+                  to="/dashboard/all-reviews"
+                  className="flex items-center gap-2 hover:text-emerald-500"
+                >
+                  <FaComments /> All Reviews
+                </NavLink>
+              </li>
+            )}
+            {!roleLoading && role === "admin" && (
+              <li>
+                <NavLink
+                  to="/dashboard/all-reviews"
+                  className="flex items-center gap-2 hover:text-emerald-500"
+                >
+                  <FaComments /> Manage Reviews
+                </NavLink>
+              </li>
+            )}
+            {!roleLoading && role === "admin" && (
+              <li>
+                <NavLink
+                  to="/dashboard/manage-users"
+                  className="flex items-center gap-2 hover:text-emerald-500"
+                >
+                  <FaUserCog /> Manage Users
+                </NavLink>
+              </li>
+            )}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DashLayout;

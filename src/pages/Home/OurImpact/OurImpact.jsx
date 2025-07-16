@@ -1,0 +1,73 @@
+import React from "react";
+import { FaUniversity, FaUsers, FaGraduationCap, FaStarHalf, FaStar } from "react-icons/fa";
+import { useQuery } from "@tanstack/react-query";
+import CountUp from "react-countup";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import Loading from "../../../shared/Loading";
+
+const OurImpact = () => {
+  const axiosPublic = useAxiosPublic();
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["stats"],
+    queryFn: async () => {
+      const res = await axiosPublic.get("/stats");
+      return res.data;
+    },
+  });
+
+  if (isLoading) return <Loading />;
+  if (isError)
+    return <p className="text-center text-red-500">Failed to load stats.</p>;
+
+  const stats = [
+    {
+      icon: <FaUniversity className="text-emerald-500 text-4xl" />,
+      label: "Total Scholarships",
+      value: data.scholarshipsCount,
+    },
+    {
+      icon: <FaUsers className="text-emerald-500 text-4xl" />,
+      label: "Total Applications",
+      value: data.applicationsCount,
+    },
+    {
+      icon: <FaStar className="text-emerald-500 text-4xl" />,
+      label: "Total Reviews",
+      value: data.reviewsCount,
+    },
+  ];
+
+  return (
+    <div className="bg-gray-100 dark:bg-gray-900 py-12">
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-3xl font-bold mb-8">
+          Our <span className="text-emerald-500">Impact</span>
+        </h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {stats.map((s, i) => (
+            <div
+              key={i}
+              className="text-center md:border-r border-gray-200 px-6 py-8 bg-white dark:bg-gray-800 rounded shadow"
+            >
+              <div className="flex justify-center mb-4">{s.icon}</div>
+              <h3 className="text-4xl font-bold lg:text-5xl xl:text-6xl text-emerald-600">
+                <CountUp
+                  enableScrollSpy={true}
+                  scrollSpyDelay={0}
+                  end={s.value}
+                  duration={3}
+                  separator=","
+                />
+              </h3>
+              <p className="text-sm font-medium tracking-widest text-gray-800 dark:text-gray-200 uppercase mt-2">
+                {s.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default OurImpact;
