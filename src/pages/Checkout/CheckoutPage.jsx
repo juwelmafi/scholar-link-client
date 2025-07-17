@@ -214,7 +214,7 @@ const CheckoutPage = () => {
           className="input input-bordered w-full bg-gray-100"
         />
 
-        <button type="submit" className="btn btn-primary w-full mt-4">
+        <button type="submit" className="btn btn-primary w-full mt-4 text-white">
           Pay & Apply
         </button>
       </form>
@@ -229,7 +229,7 @@ const CheckoutPage = () => {
       />
       <div className="modal">
         <div className="modal-box max-w-2xl">
-          <h3 className="font-bold text-lg text-emerald-600 mb-4">
+          <h3 className="font-bold text-lg text-primary mb-4">
             Complete Your Payment
           </h3>
 
@@ -240,7 +240,10 @@ const CheckoutPage = () => {
           />
 
           <div className="modal-action">
-            <button onClick={() => setShowModal(false)} className="btn btn-sm">
+            <button onClick={() => {
+              setShowModal(false);
+              toast.error('Application cancelled')
+            }} className="btn btn-sm">
               Cancel
             </button>
           </div>

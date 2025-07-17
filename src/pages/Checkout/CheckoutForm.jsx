@@ -86,7 +86,7 @@ const CheckoutForm = ({ applicationData, amount, onClose }) => {
           },
         }}
       />
-      <button className="btn btn-primary btn-sm mt-4" type="submit" disabled={!stripe || loading}>
+      <button className="btn btn-primary text-white btn-sm mt-4" type="submit" disabled={!stripe || loading}>
         {loading ? "Processing..." : `Pay ৳${amount}`}
       </button>
     </form>
