@@ -127,8 +127,8 @@ const ManageScholarships = () => {
 
       <div className="overflow-x-auto ">
         <table className="table">
-          <thead>
-            <tr className="bg-base-200">
+          <thead className="bg-sky-50 text-primary">
+            <tr>
               <th>Name</th>
               <th>University</th>
               <th>Subject</th>

@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import useAxiosSecurity from "../../../hooks/UseAxiosSecurity";
 import Loading from "../../../shared/Loading";
+import { FaTrash } from "react-icons/fa";
 
 const ManageUsers = () => {
   const axiosSecure = useAxiosSecurity();
@@ -66,7 +67,7 @@ const ManageUsers = () => {
 
   return (
     <div className="mx-auto w-full px-4 py-10">
-      <h2 className="text-2xl font-bold mb-6 text-emerald-600">Manage Users</h2>
+      <h2 className="text-2xl font-bold mb-6 text-primary">Manage Users</h2>
       <div className="flex justify-end mb-4">
         <select
           className="select select-bordered select-sm"
@@ -82,7 +83,7 @@ const ManageUsers = () => {
 
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">
-          <thead className="bg-emerald-100 text-emerald-700">
+          <thead className="bg-sky-50 text-primary">
             <tr>
               <th>#</th>
               <th>Name</th>
@@ -97,7 +98,7 @@ const ManageUsers = () => {
                 (user) => roleFilter === "all" || user.role === roleFilter
               )
               .map((user, index) => (
-                <tr key={user._id}>
+                <tr key={user._id} className="text-xs md:text-sm">
                   <td>{index + 1}</td>
                   <td>{user.name || "Unknown"}</td>
                   <td>{user.email}</td>
@@ -117,9 +118,9 @@ const ManageUsers = () => {
                   <td className="text-center">
                     <button
                       onClick={() => handleDelete(user._id)}
-                      className="btn btn-xs btn-error"
+                      className="btn btn-sm btn-error text-white"
                     >
-                      Delete
+                      <FaTrash></FaTrash> Delete
                     </button>
                   </td>
                 </tr>

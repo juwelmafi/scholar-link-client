@@ -128,7 +128,7 @@ const AllAppliedScholarships = () => {
           </select>
         </div>
         <table className="table">
-          <thead className="bg-base-200">
+          <thead className="bg-sky-50 text-primary">
             <tr>
               <th>#</th>
               <th>Applicant</th>

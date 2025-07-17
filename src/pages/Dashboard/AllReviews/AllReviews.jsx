@@ -52,7 +52,7 @@ const AllReviews = () => {
         {reviews.map((review) => (
           <div
             key={review._id}
-            className="bg-white rounded shadow-sm p-4 flex flex-col justify-between min-h-[320px]"
+            className="bg-white rounded border border-primary p-4 flex flex-col justify-between min-h-[320px]"
           >
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-4">
