@@ -7,7 +7,7 @@ import Banner from './Banner/Banner';
 
 const Home = () => {
   return (
-    <div className='bg-[#F3F4F6]'>
+    <div className=''>
       <Banner></Banner>
       <TopScholarships></TopScholarships>
       <OurImpact></OurImpact>

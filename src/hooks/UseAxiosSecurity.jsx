@@ -5,7 +5,7 @@ import { getIdToken } from "firebase/auth";
 import useAuth from "./useAuth";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:4000", // Consider using VITE_API_BASE_URL for production
+  baseURL: "https://scholar-link-server.vercel.app", // Consider using VITE_API_BASE_URL for production
 });
 
 const useAxiosSecurity = () => {

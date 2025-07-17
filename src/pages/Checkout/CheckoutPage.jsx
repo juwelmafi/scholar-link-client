@@ -97,13 +97,13 @@ const CheckoutPage = () => {
   if (isLoading) return <Loading />;
 
   return (
-    <div className="max-w-4xl mx-auto py-10 px-4 mt-20">
+    <div className="max-w-4xl mx-auto py-10 px-4 pt-28">
       {/* Applicant Form */}
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="bg-white p-6 rounded shadow space-y-4"
       >
-        <h3 className="text-xl font-bold text-emerald-600 mb-4">
+        <h3 className="text-xl font-bold text-primary mb-4">
           Applicant Information
         </h3>
 

@@ -38,7 +38,7 @@ const OurImpact = () => {
   ];
 
   return (
-    <div className="bg-gray-100 dark:bg-gray-900 py-12">
+    <div className="bg-gray-100  py-12">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-8">
           Our <span className="text-primary">Impact</span>
@@ -47,7 +47,7 @@ const OurImpact = () => {
           {stats.map((s, i) => (
             <div
               key={i}
-              className="text-center md:border-r border-gray-200 px-6 py-8 bg-white dark:bg-gray-800 rounded shadow"
+              className="text-center md:border-r border-gray-200 px-6 py-8 bg-white  rounded shadow"
             >
               <div className="flex justify-center mb-4">{s.icon}</div>
               <h3 className="text-4xl font-bold lg:text-5xl xl:text-6xl text-primary">
@@ -60,7 +60,7 @@ const OurImpact = () => {
                   suffix="+"
                 />
               </h3>
-              <p className="text-sm font-medium tracking-widest text-gray-800 dark:text-gray-200 uppercase mt-2">
+              <p className="text-sm font-medium tracking-widest text-gray-800  uppercase mt-2">
                 {s.label}
               </p>
             </div>

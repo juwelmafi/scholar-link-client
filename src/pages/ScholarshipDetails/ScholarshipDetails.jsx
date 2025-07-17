@@ -48,17 +48,17 @@ const ScholarshipDetails = () => {
   } = scholarship;
 
   return (
-    <div className="max-w-7xl mx-auto py-10 mt-20 px-6">
-      <div className="grid md:grid-cols-2 gap-10">
-        <div>
+    <div className="max-w-7xl mx-auto py-10 pt-34 px-6">
+      <div className="grid md:grid-cols-2 items-start gap-10">
+        <div className="w-full">
           <img
             src={universityImage}
             alt={scholarshipName}
-            className="rounded-lg shadow-lg"
+            className="rounded-lg shadow-lg w-full"
           />
         </div>
         <div>
-          <h2 className="text-3xl font-bold text-emerald-600">
+          <h2 className="text-3xl font-bold text-primary">
             {scholarshipName}
           </h2>
           <p className="text-lg mt-2">
@@ -95,7 +95,7 @@ const ScholarshipDetails = () => {
             <strong>Posted By:</strong> {postedBy}
           </p>
           <Link to={`/checkout/${id}`}>
-            <button className="btn bg-emerald-500 hover:bg-emerald-600 text-white mt-6">
+            <button className="btn bg-primary text-white mt-6">
               Apply Now
             </button>
           </Link>
@@ -117,7 +117,7 @@ const ScholarshipDetails = () => {
           {reviews.length > 0 ? (
             reviews.map((review) => (
               <SwiperSlide key={review._id}>
-                <div className="p-4 border rounded-lg shadow bg-white dark:bg-base-200">
+                <div className="container flex flex-col w-full max-w-lg p-2 md:p-6 mx-auto rounded-md bg-white text-gray-800 shadow-md">
                   <div className="flex items-center gap-3 mb-3">
                     <img
                       src={review.userImage}

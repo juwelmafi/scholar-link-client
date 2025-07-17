@@ -26,12 +26,12 @@ const UniversityLogoSlider = () => {
   ];
 
   return (
-    <section className="py-12 border-gray-300 dark:bg-base-100">
+    <section className="py-12 border-gray-300">
       <div className="text-center mb-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
           Trusted by <span className="text-primary">Global Universities</span>
         </h2>
-        <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
+        <p className="text-gray-600  text-sm mt-2">
           Our partners across the world
         </p>
       </div>
