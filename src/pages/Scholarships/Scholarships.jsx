@@ -48,7 +48,7 @@ const AllScholarshipsPage = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10 mt-20">
+    <div className="max-w-7xl mx-auto px-4 py-10 pt-28">
       {/* Controls: Search + Limit */}
       <form
         onSubmit={handleSearchSubmit}
@@ -60,7 +60,7 @@ const AllScholarshipsPage = () => {
             placeholder="Search by Scholarship, University or Degree"
             value={searchTerm}
             onChange={handleSearchChange}
-            className="input input-bordered w-80 rounded-r-none outline-none"
+            className="input input-bordered w-full rounded-r-none outline-none"
           />
           <button type="submit" className="btn btn-primary py-2 shadow-none -ml-2 text-white rounded-l-none">
             Search
@@ -97,7 +97,7 @@ const AllScholarshipsPage = () => {
         {scholarships.map((scholarship) => (
           <div
             key={scholarship._id}
-            className="border rounded-lg shadow hover:shadow-lg transition duration-300"
+            className="bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300"
           >
             <img
               src={scholarship.universityImage}
