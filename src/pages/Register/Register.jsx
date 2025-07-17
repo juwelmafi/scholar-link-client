@@ -101,7 +101,7 @@ const Register = () => {
 
               {/* Upload icon overlay */}
               <label className="absolute bottom-1 right-1 w-6 h-6 bg-white rounded-full shadow flex items-center justify-center cursor-pointer">
-                <FaArrowUp className="text-green-400 text-xs" />
+                <FaArrowUp className="text-primary text-xs" />
                 <input
                   type="file"
                   accept="image/*"
@@ -116,7 +116,7 @@ const Register = () => {
           <label className="label">Your name</label>
           <input
             type="name"
-            className="input"
+            className="input w-full lg:w-[20rem]"
             {...register("name", { required: true })}
             placeholder="Your name"
           />
@@ -128,7 +128,7 @@ const Register = () => {
           <label className="label">Email</label>
           <input
             type="email"
-            className="input"
+            className="input w-full lg:w-[20rem]"
             {...register("email", { required: true })}
             placeholder="Email"
           />
@@ -140,7 +140,7 @@ const Register = () => {
           <label className="label">Password</label>
           <input
             type="password"
-            className="input"
+            className="input w-full lg:w-[20rem]"
             placeholder="Password"
             {...register("password", {
               required: "Password is required",
@@ -162,7 +162,7 @@ const Register = () => {
             <p className="text-red-500">{errors.password.message}</p>
           )}
         </fieldset>
-        <button className="btn btn-primary text-black w-[20rem] mt-4">
+        <button className="btn btn-primary text-white w-full lg:w-[20rem] mt-4">
           Register
         </button>
         <p className="mt-2">

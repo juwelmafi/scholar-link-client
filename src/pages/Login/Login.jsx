@@ -4,7 +4,6 @@ import { Link, useLocation, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import SocialLogin from "../../shared/SocialLogin";
 import { useState } from "react";
-// import SocialLogIn from "./SocialLogin/SocialLogIn";
 
 const Login = () => {
   const { signInUser } = useAuth();
@@ -32,48 +31,50 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <h2 className="font-bold text-3xl py-5">Welcome back!</h2>
-        <fieldset className="fieldset">
-          <label className="label">Email</label>
-          <input
-            type="email"
-            {...register("email")}
-            className="input"
-            placeholder="Email"
-          />
-          <label className="label">Password</label>
-          <input
-            type="password"
-            {...register("password", { required: true, minLength: 6 })}
-            className="input"
-            placeholder="Password"
-          />
-          {errors.password?.type === "required" && (
-            <p className="text-red-500">Password required</p>
-          )}
-          {errors.password?.type === "minLength" && (
-            <p className="text-red-500">Password must be minimum 6 charecter</p>
-          )}
-          <p className="text-red-500">{errorMessage}</p>
-          <div>
-            <a className="link link-hover">Forgot password?</a>
-          </div>
-        </fieldset>
-        <button className="btn w-[20rem] btn-primary text-black mt-4">
-          Login
-        </button>
-        <p className="mt-2">
-          Don't have an account?{" "}
-          <Link to={"/register"} className="-mt-2 btn btn-link p-0">
-            {" "}
-            Register
-          </Link>{" "}
-        </p>
-      </form>
-      <SocialLogin></SocialLogin>
-    </div>
+      <div className="w-full">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <h2 className="font-bold text-3xl py-5">Welcome back!</h2>
+          <fieldset className="fieldset">
+            <label className="label">Email</label>
+            <input
+              type="email"
+              {...register("email")}
+              className="input w-full lg:w-[20rem]"
+              placeholder="Email"
+            />
+            <label className="label">Password</label>
+            <input
+              type="password"
+              {...register("password", { required: true, minLength: 6 })}
+              className="input w-full lg:w-[20rem]"
+              placeholder="Password"
+            />
+            {errors.password?.type === "required" && (
+              <p className="text-red-500">Password required</p>
+            )}
+            {errors.password?.type === "minLength" && (
+              <p className="text-red-500">
+                Password must be minimum 6 charecter
+              </p>
+            )}
+            <p className="text-red-500">{errorMessage}</p>
+            <div>
+              <a className="link link-hover">Forgot password?</a>
+            </div>
+          </fieldset>
+          <button className="btn w-full lg:w-[20rem] btn-primary text-white mt-4">
+            Login
+          </button>
+          <p className="mt-2">
+            Don't have an account?{" "}
+            <Link to={"/register"} className="-mt-2 btn btn-link p-0">
+              {" "}
+              Register
+            </Link>{" "}
+          </p>
+        </form>
+        <SocialLogin></SocialLogin>
+      </div>
   );
 };
 
