@@ -29,7 +29,7 @@ const UniversityLogoSlider = () => {
     <section className="py-12 border-gray-300 dark:bg-base-100">
       <div className="text-center mb-10">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">
-          Trusted by Global Universities
+          Trusted by <span className="text-primary">Global Universities</span>
         </h2>
         <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
           Our partners across the world
@@ -41,14 +41,14 @@ const UniversityLogoSlider = () => {
         speed={50}
         pauseOnHover={true}
         gradient={false}
-        className="flex items-center gap-10"
+        className="flex items-center"
       >
         {universityImages.map((logo, index) => (
-          <div key={index} className="mx-20 w-28 flex items-center justify-center">
+          <div key={index} className="mx-12 w-28 flex items-center justify-center">
             <img
               src={logo}
               alt={`University ${index + 1}`}
-              className=" w-full object-contain"
+              className=" w-full h-28 object-cover rounded-full"
               
             />
           </div>
