@@ -68,7 +68,7 @@ const DashLayout = () => {
               <li>
                 <NavLink
                   to="/dashboard"
-                  className="flex items-center gap-2 hover:text-emerald-500"
+                  className="flex items-center gap-2 hover:text-primary"
                 >
                   <FaUser /> My Profile
                 </NavLink>
@@ -78,7 +78,7 @@ const DashLayout = () => {
               <li>
                 <NavLink
                   to="/dashboard"
-                  className="flex items-center gap-2 hover:text-emerald-500"
+                  className="flex items-center gap-2 hover:text-primary"
                 >
                   <FaUser /> My Profile
                 </NavLink>
@@ -88,7 +88,7 @@ const DashLayout = () => {
               <li>
                 <NavLink
                   to="/dashboard"
-                  className="flex items-center gap-2 hover:text-emerald-500"
+                  className="flex items-center gap-2 hover:text-primary"
                 >
                   <FaUser /> Admin Profile
                 </NavLink>
@@ -98,7 +98,7 @@ const DashLayout = () => {
               <li>
                 <NavLink
                   to="/dashboard/analytics"
-                  className="flex items-center gap-2 hover:text-emerald-500"
+                  className="flex items-center gap-2 hover:text-primary"
                 >
                   <FaChartBar /> Analytics
                 </NavLink>
@@ -108,7 +108,7 @@ const DashLayout = () => {
               <li>
                 <NavLink
                   to="/dashboard/add-scholarship"
-                  className="flex items-center gap-2 hover:text-emerald-500"
+                  className="flex items-center gap-2 hover:text-primary"
                 >
                   <FaPlus /> Add Scholarship
                 </NavLink>
@@ -118,7 +118,7 @@ const DashLayout = () => {
               <li>
                 <NavLink
                   to="/dashboard/add-scholarship"
-                  className="flex items-center gap-2 hover:text-emerald-500"
+                  className="flex items-center gap-2 hover:text-primary"
                 >
                   <FaPlus /> Add Scholarship
                 </NavLink>
@@ -128,7 +128,7 @@ const DashLayout = () => {
               <li>
                 <NavLink
                   to="/dashboard/my-applications"
-                  className="flex items-center gap-2 hover:text-emerald-500"
+                  className="flex items-center gap-2 hover:text-primary"
                 >
                   <FaList /> My Applications
                 </NavLink>
@@ -138,7 +138,7 @@ const DashLayout = () => {
               <li>
                 <NavLink
                   to="/dashboard/my-reviews"
-                  className="flex items-center gap-2 hover:text-emerald-500"
+                  className="flex items-center gap-2 hover:text-primary"
                 >
                   <FaStar /> My Reviews
                 </NavLink>
@@ -148,7 +148,7 @@ const DashLayout = () => {
               <li>
                 <NavLink
                   to="/dashboard/manage-scholarships"
-                  className="flex items-center gap-2 hover:text-emerald-500"
+                  className="flex items-center gap-2 hover:text-primary"
                 >
                   <FaClipboardList /> Manage Scholarships
                 </NavLink>
@@ -158,7 +158,7 @@ const DashLayout = () => {
               <li>
                 <NavLink
                   to="/dashboard/manage-scholarships"
-                  className="flex items-center gap-2 hover:text-emerald-500"
+                  className="flex items-center gap-2 hover:text-primary"
                 >
                   <FaClipboardList /> Manage Scholarships
                 </NavLink>
@@ -168,7 +168,7 @@ const DashLayout = () => {
               <li>
                 <NavLink
                   to="/dashboard/all-applied-shcolarsips"
-                  className="flex items-center gap-2 hover:text-emerald-500"
+                  className="flex items-center gap-2 hover:text-primary"
                 >
                   <FaFileAlt /> All Applied Scholarships
                 </NavLink>
@@ -178,7 +178,7 @@ const DashLayout = () => {
               <li>
                 <NavLink
                   to="/dashboard/all-applied-shcolarsips"
-                  className="flex items-center gap-2 hover:text-emerald-500"
+                  className="flex items-center gap-2 hover:text-primary"
                 >
                   <FaFileAlt /> Manage Applied Scholarships
                 </NavLink>
@@ -188,7 +188,7 @@ const DashLayout = () => {
               <li>
                 <NavLink
                   to="/dashboard/all-reviews"
-                  className="flex items-center gap-2 hover:text-emerald-500"
+                  className="flex items-center gap-2 hover:text-primary"
                 >
                   <FaComments /> All Reviews
                 </NavLink>
@@ -198,7 +198,7 @@ const DashLayout = () => {
               <li>
                 <NavLink
                   to="/dashboard/all-reviews"
-                  className="flex items-center gap-2 hover:text-emerald-500"
+                  className="flex items-center gap-2 hover:text-primary"
                 >
                   <FaComments /> Manage Reviews
                 </NavLink>
@@ -208,7 +208,7 @@ const DashLayout = () => {
               <li>
                 <NavLink
                   to="/dashboard/manage-users"
-                  className="flex items-center gap-2 hover:text-emerald-500"
+                  className="flex items-center gap-2 hover:text-primary"
                 >
                   <FaUserCog /> Manage Users
                 </NavLink>

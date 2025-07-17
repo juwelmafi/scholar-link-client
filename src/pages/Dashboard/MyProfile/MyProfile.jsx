@@ -8,8 +8,8 @@ const MyProfile = () => {
   const { role, roleLoading } = useUserRole();
 
   return (
-    <div className="max-w-3xl mx-auto mt-10 p-6 bg-white rounded-2xl shadow-md border border-gray-100">
-      <h2 className="text-2xl font-bold text-center mb-6 text-emerald-600">
+    <div className="max-w-7xl mx-2 md:mx-auto mt-10 md:mt-44 p-6 bg-white rounded-2xl shadow-md border border-gray-100">
+      <h2 className="text-2xl font-bold mb-6 text-primary">
         My Profile
       </h2>
 
@@ -18,27 +18,26 @@ const MyProfile = () => {
           <img
             src={user?.photoURL || "https://i.ibb.co/Fz1y8ZY/user-placeholder.jpg"}
             alt="Profile"
-            className="w-32 h-32 rounded-full border-4 border-emerald-500 shadow-md object-cover"
+            className="w-32 h-32 rounded-full border-4 border-primary shadow-md object-cover"
           />
         </div>
 
-        <div className="flex-1 space-y-4">
+        <div className="flex-1 space-y-3">
           <div className="flex items-center gap-3 text-gray-700">
-            <FaUserGraduate className="text-emerald-500 text-lg" />
-            <span className="font-medium">Name:</span>
+            <FaUserGraduate className="text-primary text-lg" />
+            
             <span>{user?.displayName || "Not Available"}</span>
           </div>
 
           <div className="flex items-center gap-3 text-gray-700">
-            <FaEnvelope className="text-emerald-500 text-lg" />
-            <span className="font-medium">Email:</span>
+            <FaEnvelope className="text-primary text-lg" />
+            
             <span>{user?.email}</span>
           </div>
 
           {!roleLoading && role !== "user" && (
             <div className="flex items-center gap-3 text-gray-700">
-              <FaShieldAlt className="text-emerald-500 text-lg" />
-              <span className="font-medium">Role:</span>
+              <FaShieldAlt className="text-primary text-lg" />
               <span className="capitalize">{role}</span>
             </div>
           )}

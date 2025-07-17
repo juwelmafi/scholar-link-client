@@ -5,6 +5,7 @@ import useAuth from "../../../hooks/useAuth";
 import Loading from "../../../shared/Loading";
 import Swal from "sweetalert2";
 import useAxiosSecurity from "../../../hooks/UseAxiosSecurity";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 const MyReviews = () => {
   const { user } = useAuth();
@@ -97,18 +98,18 @@ const MyReviews = () => {
               <td>{review.universityName}</td>
               <td>{review.comment}</td>
               <td>{review.date}</td>
-              <td className="space-x-1">
+              <td className="space-x-1 flex gap-1 items-center">
                 <button
                   onClick={() => setEditReview(review)}
                   className="btn btn-xs btn-warning"
                 >
-                  Edit
+                  <FaEdit></FaEdit>
                 </button>
                 <button
                   onClick={() => handleDelete(review._id)}
                   className="btn btn-xs btn-error"
                 >
-                  Delete
+                  <FaTrash></FaTrash>
                 </button>
               </td>
             </tr>

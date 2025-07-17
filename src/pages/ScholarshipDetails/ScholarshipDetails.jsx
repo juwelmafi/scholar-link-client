@@ -54,7 +54,7 @@ const ScholarshipDetails = () => {
           <img
             src={universityImage}
             alt={scholarshipName}
-            className="rounded-lg shadow-lg w-full"
+            className="rounded-lg md:h-[58vh] shadow-lg w-full"
           />
         </div>
         <div>
