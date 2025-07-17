@@ -162,15 +162,13 @@ const AllAppliedScholarships = () => {
                   </select>
                 </td>
                 <td className="flex gap-2">
-                  <label
-                    htmlFor="details_modal"
+                  <button
                     onClick={() => setSelectedApp(app)}
                     className="btn btn-sm text-white btn-info tooltip"
                     data-tip="Details"
                   >
                     <FaEye />
-                  </label>
-
+                  </button>
                   <button
                     onClick={() => openFeedbackModal(app._id)}
                     className="btn btn-sm btn-success text-white tooltip"
@@ -192,139 +190,139 @@ const AllAppliedScholarships = () => {
           </tbody>
         </table>
       </div>
-      {/* DaisyUI Modal for Application Details */}
-      <input type="checkbox" id="details_modal" className="modal-toggle" />
-      <div className="modal" role="dialog">
-        <div className="modal-box max-w-3xl">
-          <label
-            htmlFor="details_modal"
-            className="btn btn-sm btn-circle absolute right-2 top-2"
-          >
-            ✕
-          </label>
+      {selectedApp && (
+        <dialog
+          open
+          className="modal modal-bottom sm:modal-middle"
+          onClose={() => setSelectedApp(null)}
+        >
+          <div className="modal-box max-w-3xl">
+            <h3 className="text-lg font-bold text-primary mb-4">
+              Application Details
+            </h3>
 
-          <h3 className="text-lg font-bold text-primary mb-4">
-            Application Details
-          </h3>
-          {selectedApp && (
-            <div className="text-sm space-y-6 px-4">
-              {/* Profile Image */}
-              <div className="flex flex-col items-center">
-                <img
-                  src={selectedApp.photo}
-                  alt="Applicant"
-                  className="w-32 h-32 object-cover rounded-full border-2 border-emerald-500 shadow"
-                />
-                <h2 className="text-lg font-bold mt-2">
-                  {selectedApp.userName}
-                </h2>
-                <p className="text-gray-600">{selectedApp.userEmail}</p>
+            {/* Profile Image */}
+            <div className="flex flex-col items-center mb-6">
+              <img
+                src={selectedApp.photo}
+                alt="Applicant"
+                className="w-32 h-32 object-cover rounded-full border-2 border-emerald-500 shadow"
+              />
+              <h2 className="text-lg font-bold mt-2">{selectedApp.userName}</h2>
+              <p className="text-gray-600">{selectedApp.userEmail}</p>
+            </div>
+
+            {/* Details Grid */}
+            <div className="grid md:grid-cols-2 gap-4 text-sm">
+              {/* Left Column */}
+              <div className="space-y-2">
+                <p className="flex items-center gap-2">
+                  <span className="text-primary">
+                    <FaPhoneAlt />
+                  </span>
+                  {selectedApp.phone}
+                </p>
+                <p className="flex items-center gap-2">
+                  <span className="text-primary">
+                    <FaMapMarkerAlt />
+                  </span>
+                  {selectedApp.address}
+                </p>
+                <p className="flex items-center gap-2">
+                  <span className="text-primary">
+                    <FaUser />
+                  </span>
+                  {selectedApp.gender}
+                </p>
+                <p className="flex items-center gap-2">
+                  <span className="text-primary">
+                    <FaGraduationCap />
+                  </span>
+                  {selectedApp.applyingDegree}
+                </p>
+                <p className="flex items-center gap-2">
+                  <span className="text-primary">
+                    <MdSchool />
+                  </span>
+                  SSC: {selectedApp.sscResult}
+                </p>
+                <p className="flex items-center gap-2">
+                  <span className="text-primary">
+                    <MdSchool />
+                  </span>
+                  HSC: {selectedApp.hscResult}
+                </p>
+                <p className="flex items-center gap-2">
+                  <span className="text-primary">
+                    <MdTimer />
+                  </span>
+                  Study Gap: {selectedApp.studyGap || "N/A"}
+                </p>
               </div>
 
-              {/* Details Grid */}
-              <div className="grid md:grid-cols-2 gap-4">
-                {/* Left Column */}
-                <div className="space-y-2">
-                  <p className="flex items-center gap-2">
-                    <span className="text-primary">
-                      <FaPhoneAlt />
-                    </span>
-                    {selectedApp.phone}
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <span className="text-primary">
-                      <FaMapMarkerAlt />
-                    </span>
-                    {selectedApp.address}
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <span className="text-primary">
-                      <FaUser />
-                    </span>
-                    {selectedApp.gender}
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <span className="text-primary">
-                      <FaGraduationCap />
-                    </span>
-                    {selectedApp.applyingDegree}
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <span className="text-primary">
-                      <MdSchool />
-                    </span>
-                    SSC: {selectedApp.sscResult}
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <span className="text-primary">
-                      <MdSchool />
-                    </span>
-                    HSC: {selectedApp.hscResult}
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <span className="text-primary">
-                      <MdTimer />
-                    </span>
-                    Study Gap: {selectedApp.studyGap || "N/A"}
-                  </p>
-                </div>
-
-                {/* Right Column */}
-                <div className="space-y-2">
-                  <p className="flex items-center gap-2">
-                    <span className="text-primary">
-                      <FaUniversity />
-                    </span>
-                    {selectedApp.universityName}
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <span className="text-primary">
-                      <FaBullseye />
-                    </span>
-                    {selectedApp.scholarshipName}
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <span className="text-primary">
-                      <FaTag />
-                    </span>
-                    {selectedApp.scholarshipCategory}
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <span className="text-primary">
-                      <FaBook />
-                    </span>
-                    {selectedApp.subjectCategory}
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <span className="text-primary">
-                      <FaMoneyBillWave />
-                    </span>
-                    {selectedApp.paymentStatus}
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <span className="text-primary">
-                      <FaReceipt />
-                    </span>
-                    Payment ID: {selectedApp.paymentId}
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <span className="text-primary">
-                      <FaThumbtack />
-                    </span>
-                    {selectedApp.applicationStatus}
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <span className="text-primary">
-                      <FaCalendarAlt />
-                    </span>
-                    {new Date(selectedApp.date).toLocaleString()}
-                  </p>
-                </div>
+              {/* Right Column */}
+              <div className="space-y-2">
+                <p className="flex items-center gap-2">
+                  <span className="text-primary">
+                    <FaUniversity />
+                  </span>
+                  {selectedApp.universityName}
+                </p>
+                <p className="flex items-center gap-2">
+                  <span className="text-primary">
+                    <FaBullseye />
+                  </span>
+                  {selectedApp.scholarshipName}
+                </p>
+                <p className="flex items-center gap-2">
+                  <span className="text-primary">
+                    <FaTag />
+                  </span>
+                  {selectedApp.scholarshipCategory}
+                </p>
+                <p className="flex items-center gap-2">
+                  <span className="text-primary">
+                    <FaBook />
+                  </span>
+                  {selectedApp.subjectCategory}
+                </p>
+                <p className="flex items-center gap-2">
+                  <span className="text-primary">
+                    <FaMoneyBillWave />
+                  </span>
+                  {selectedApp.paymentStatus}
+                </p>
+                <p className="flex items-center gap-2">
+                  <span className="text-primary">
+                    <FaReceipt />
+                  </span>
+                  Payment ID: {selectedApp.paymentId}
+                </p>
+                <p className="flex items-center gap-2">
+                  <span className="text-primary">
+                    <FaThumbtack />
+                  </span>
+                  {selectedApp.applicationStatus}
+                </p>
+                <p className="flex items-center gap-2">
+                  <span className="text-primary">
+                    <FaCalendarAlt />
+                  </span>
+                  {new Date(selectedApp.date).toLocaleString()}
+                </p>
               </div>
             </div>
-          )}
-        </div>
-      </div>
+
+            {/* Close button */}
+            <div className="modal-action">
+              <button className="btn" onClick={() => setSelectedApp(null)}>
+                Close
+              </button>
+            </div>
+          </div>
+        </dialog>
+      )}
+
       <dialog id="feedback_modal" className="modal">
         <div className="modal-box">
           <h3 className="font-bold text-lg mb-4">Send Feedback</h3>
