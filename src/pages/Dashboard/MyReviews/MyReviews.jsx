@@ -78,7 +78,7 @@ const MyReviews = () => {
 
   return (
     <div className="overflow-x-auto mt-6">
-      <h2 className="text-2xl font-semibold mb-4 text-center">My Reviews</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-center text-primary">My Reviews</h2>
       <table className="table table-zebra w-full">
         <thead className="bg-base-200">
           <tr>
@@ -96,7 +96,7 @@ const MyReviews = () => {
               <td>{index + 1}</td>
               <td>{review.scholarshipName}</td>
               <td>{review.universityName}</td>
-              <td>{review.comment}</td>
+              <td className="line-clamp-2">{review.comment}</td>
               <td>{review.date}</td>
               <td className="space-x-1 flex gap-1 items-center">
                 <button

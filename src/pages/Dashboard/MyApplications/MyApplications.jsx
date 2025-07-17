@@ -215,7 +215,7 @@ const MyApplications = () => {
                 </span>
               </td>
               <td>{app.feedback || "N/A"}</td>
-              <td className="space-x-1">
+              <td className="space-x-1 flex gap-1 items-center justify-center">
                 <button
                   className="btn btn-xs btn-info text-white"
                   onClick={() => {
