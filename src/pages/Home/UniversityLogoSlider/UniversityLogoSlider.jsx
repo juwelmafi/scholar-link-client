@@ -44,11 +44,11 @@ const UniversityLogoSlider = () => {
         className="flex items-center"
       >
         {universityImages.map((logo, index) => (
-          <div key={index} className="mx-12 w-28 flex items-center justify-center">
+          <div key={index} className="mx-12 w-24 flex items-center justify-center">
             <img
               src={logo}
               alt={`University ${index + 1}`}
-              className=" w-full h-28 object-cover rounded-full"
+              className=" w-full h-24 object-cover rounded-full"
               
             />
           </div>

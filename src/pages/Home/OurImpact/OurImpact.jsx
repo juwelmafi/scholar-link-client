@@ -57,6 +57,7 @@ const OurImpact = () => {
                   end={s.value}
                   duration={3}
                   separator=","
+                  suffix="+"
                 />
               </h3>
               <p className="text-sm font-medium tracking-widest text-gray-800 dark:text-gray-200 uppercase mt-2">

@@ -36,7 +36,8 @@ const MyReviews = () => {
     if (confirm.isConfirmed) {
       try {
         const res = await axiosSecure.delete(`/reviews/${id}`);
-        if (res.data.deletedCount > 0) {
+        if (res.data.success) {
+          console.log('deleted', res.data)
           Swal.fire("Deleted!", "Your review has been removed.", "success");
           refetch();
         }

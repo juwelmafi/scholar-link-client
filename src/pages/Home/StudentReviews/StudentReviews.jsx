@@ -34,7 +34,7 @@ const StudentReviews = () => {
       <div className="flex justify-between items-center mb-6">
         <div>
           <h2 className="text-2xl md:text-3xl font-bold mb-2">
-            What Our Students Say
+            What Our <span className="text-primary">Students Say</span>
           </h2>
           <p className="text-gray-600">
             Hear from students who secured scholarships and global education
@@ -44,13 +44,13 @@ const StudentReviews = () => {
         <div className="hidden md:flex gap-3">
           <div
             ref={prevRef}
-            className="p-2 border rounded cursor-pointer hover:bg-emerald-500 hover:text-white transition"
+            className="p-2 border rounded text-primary cursor-pointer hover:bg-primary hover:text-white transition"
           >
             <FaArrowLeft />
           </div>
           <div
             ref={nextRef}
-            className="p-2 border rounded cursor-pointer hover:bg-emerald-500 hover:text-white transition"
+            className="p-2 border rounded text-primary cursor-pointer hover:bg-primary hover:text-white transition"
           >
             <FaArrowRight />
           </div>
@@ -75,7 +75,7 @@ const StudentReviews = () => {
       >
         {reviews.map((review, index) => (
           <SwiperSlide key={index}>
-            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md bg-white text-gray-800 shadow-md border">
+            <div className="container flex flex-col w-full max-w-lg p-2 md:p-6 mx-auto rounded-md bg-white text-gray-800 shadow-md">
               <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                   <img
@@ -84,16 +84,16 @@ const StudentReviews = () => {
                     className="object-cover w-12 h-12 rounded-full bg-gray-200"
                   />
                   <div>
-                    <h4 className="font-bold">{review.userName}</h4>
-                    <p className="text-xs text-gray-500">
+                    <h4 className="font-bold text-sm md:text-base">{review.userName.split(" ")[0]}</h4>
+                    <p className="text-xs text-gray-500 line-clamp-1">
                       {review.universityName}
                     </p>
-                    <p className="text-xs text-gray-400">
+                    <p className="text-xs text-gray-400 line-clamp-1">
                       {new Date(review.date).toLocaleString()}
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2 text-yellow-600">
+                <div className="flex items-center space-x-2 text-yellow-400">
                   <FaStar></FaStar>
                   <span className="text-xl font-bold">{review.rating}</span>
                 </div>
