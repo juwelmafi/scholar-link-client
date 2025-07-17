@@ -121,7 +121,7 @@ const ManageScholarships = () => {
 
   return (
     <div className="p-6 w-full mx-auto">
-      <h2 className="text-3xl font-bold text-emerald-600 mb-6">
+      <h2 className="text-3xl font-bold text-primary mb-6">
         Manage Scholarships
       </h2>
 
@@ -140,7 +140,7 @@ const ManageScholarships = () => {
           </thead>
           <tbody>
             {allScholarships.map((scholarship) => (
-              <tr key={scholarship._id}>
+              <tr key={scholarship._id} className="text-xs md:text-sm">
                 <td>{scholarship.scholarshipName}</td>
                 <td>{scholarship.universityName}</td>
                 <td>{scholarship.subjectCategory}</td>
