@@ -64,8 +64,8 @@ const AddScholarship = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto pt-10">
-      <h2 className="text-2xl font-semibold mb-6 text-emerald-500">
+    <div className="max-w-4xl mx-auto py-10">
+      <h2 className="text-2xl font-semibold mb-6 text-primary">
         Add Scholarship
       </h2>
 
@@ -161,7 +161,7 @@ const AddScholarship = () => {
         <div className="col-span-1 md:col-span-2">
           <button
             type="submit"
-            className="btn bg-emerald-500 hover:bg-emerald-600 text-white w-full"
+            className="btn btn-primary text-white w-full"
           >
             Add Scholarship
           </button>
