@@ -3,7 +3,24 @@ import { useQuery } from "@tanstack/react-query";
 import Loading from "../../../shared/Loading";
 import Swal from "sweetalert2";
 
-import { FaEye, FaCommentDots, FaTrashAlt } from "react-icons/fa";
+import {
+  FaEye,
+  FaCommentDots,
+  FaTrashAlt,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+  FaUser,
+  FaGraduationCap,
+  FaUniversity,
+  FaBullseye,
+  FaTag,
+  FaBook,
+  FaMoneyBillWave,
+  FaReceipt,
+  FaThumbtack,
+  FaCalendarAlt,
+} from "react-icons/fa";
+import { MdSchool, MdTimer } from "react-icons/md";
 import toast from "react-hot-toast";
 import useAxiosSecurity from "../../../hooks/UseAxiosSecurity";
 const AllAppliedScholarships = () => {
@@ -93,8 +110,8 @@ const AllAppliedScholarships = () => {
   if (isLoading) return <Loading />;
 
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4 text-emerald-600">
+    <div className="p-4 my-5">
+      <h2 className="text-2xl font-bold mb-4 text-primary">
         All Applied Scholarships
       </h2>
 
@@ -123,7 +140,7 @@ const AllAppliedScholarships = () => {
           </thead>
           <tbody>
             {applications.map((app, index) => (
-              <tr key={app._id}>
+              <tr key={app._id} className="text-xs md:text-sm">
                 <td>{index + 1}</td>
                 <td>
                   <p className="font-semibold">{app.userName}</p>
@@ -144,11 +161,11 @@ const AllAppliedScholarships = () => {
                     <option value="completed">Completed</option>
                   </select>
                 </td>
-                <td className="space-x-1">
+                <td className="flex gap-2">
                   <label
                     htmlFor="details_modal"
                     onClick={() => setSelectedApp(app)}
-                    className="btn btn-xs btn-info tooltip"
+                    className="btn btn-sm text-white btn-info tooltip"
                     data-tip="Details"
                   >
                     <FaEye />
@@ -156,7 +173,7 @@ const AllAppliedScholarships = () => {
 
                   <button
                     onClick={() => openFeedbackModal(app._id)}
-                    className="btn btn-xs btn-success tooltip"
+                    className="btn btn-sm btn-success text-white tooltip"
                     data-tip="Feedback"
                   >
                     <FaCommentDots />
@@ -164,7 +181,7 @@ const AllAppliedScholarships = () => {
 
                   <button
                     onClick={() => handleDelete(app._id)}
-                    className="btn btn-xs btn-error tooltip"
+                    className="btn btn-sm btn-error text-white tooltip"
                     data-tip="Cancel"
                   >
                     <FaTrashAlt />
@@ -186,7 +203,7 @@ const AllAppliedScholarships = () => {
             ✕
           </label>
 
-          <h3 className="text-lg font-bold text-emerald-600 mb-4">
+          <h3 className="text-lg font-bold text-primary mb-4">
             Application Details
           </h3>
           {selectedApp && (
@@ -206,68 +223,100 @@ const AllAppliedScholarships = () => {
 
               {/* Details Grid */}
               <div className="grid md:grid-cols-2 gap-4">
+                {/* Left Column */}
                 <div className="space-y-2">
                   <p className="flex items-center gap-2">
-                    <span className="text-emerald-600">📞</span>{" "}
+                    <span className="text-primary">
+                      <FaPhoneAlt />
+                    </span>
                     {selectedApp.phone}
                   </p>
                   <p className="flex items-center gap-2">
-                    <span className="text-emerald-600">📍</span>{" "}
+                    <span className="text-primary">
+                      <FaMapMarkerAlt />
+                    </span>
                     {selectedApp.address}
                   </p>
                   <p className="flex items-center gap-2">
-                    <span className="text-emerald-600">👤</span>{" "}
+                    <span className="text-primary">
+                      <FaUser />
+                    </span>
                     {selectedApp.gender}
                   </p>
                   <p className="flex items-center gap-2">
-                    <span className="text-emerald-600">🎓</span>{" "}
+                    <span className="text-primary">
+                      <FaGraduationCap />
+                    </span>
                     {selectedApp.applyingDegree}
                   </p>
                   <p className="flex items-center gap-2">
-                    <span className="text-emerald-600">📘</span> SSC:{" "}
-                    {selectedApp.sscResult}
+                    <span className="text-primary">
+                      <MdSchool />
+                    </span>
+                    SSC: {selectedApp.sscResult}
                   </p>
                   <p className="flex items-center gap-2">
-                    <span className="text-emerald-600">📗</span> HSC:{" "}
-                    {selectedApp.hscResult}
+                    <span className="text-primary">
+                      <MdSchool />
+                    </span>
+                    HSC: {selectedApp.hscResult}
                   </p>
                   <p className="flex items-center gap-2">
-                    <span className="text-emerald-600">⏳</span> Study Gap:{" "}
-                    {selectedApp.studyGap || "N/A"}
+                    <span className="text-primary">
+                      <MdTimer />
+                    </span>
+                    Study Gap: {selectedApp.studyGap || "N/A"}
                   </p>
                 </div>
 
+                {/* Right Column */}
                 <div className="space-y-2">
                   <p className="flex items-center gap-2">
-                    <span className="text-emerald-600">🏫</span>{" "}
+                    <span className="text-primary">
+                      <FaUniversity />
+                    </span>
                     {selectedApp.universityName}
                   </p>
                   <p className="flex items-center gap-2">
-                    <span className="text-emerald-600">🎯</span>{" "}
+                    <span className="text-primary">
+                      <FaBullseye />
+                    </span>
                     {selectedApp.scholarshipName}
                   </p>
                   <p className="flex items-center gap-2">
-                    <span className="text-emerald-600">🏷️</span>{" "}
+                    <span className="text-primary">
+                      <FaTag />
+                    </span>
                     {selectedApp.scholarshipCategory}
                   </p>
                   <p className="flex items-center gap-2">
-                    <span className="text-emerald-600">📚</span>{" "}
+                    <span className="text-primary">
+                      <FaBook />
+                    </span>
                     {selectedApp.subjectCategory}
                   </p>
                   <p className="flex items-center gap-2">
-                    <span className="text-emerald-600">💰</span>{" "}
+                    <span className="text-primary">
+                      <FaMoneyBillWave />
+                    </span>
                     {selectedApp.paymentStatus}
                   </p>
                   <p className="flex items-center gap-2">
-                    <span className="text-emerald-600">🧾</span> Payment ID:{" "}
-                    {selectedApp.paymentId}
+                    <span className="text-primary">
+                      <FaReceipt />
+                    </span>
+                    Payment ID: {selectedApp.paymentId}
                   </p>
                   <p className="flex items-center gap-2">
-                    <span className="text-emerald-600">📌</span>{" "}
+                    <span className="text-primary">
+                      <FaThumbtack />
+                    </span>
                     {selectedApp.applicationStatus}
                   </p>
                   <p className="flex items-center gap-2">
-                    <span className="text-emerald-600">📅</span>{" "}
+                    <span className="text-primary">
+                      <FaCalendarAlt />
+                    </span>
                     {new Date(selectedApp.date).toLocaleString()}
                   </p>
                 </div>
