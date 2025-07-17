@@ -101,13 +101,13 @@ const MyReviews = () => {
               <td className="space-x-1 flex gap-1 items-center">
                 <button
                   onClick={() => setEditReview(review)}
-                  className="btn btn-xs btn-warning text-white"
+                  className="btn btn-sm btn-warning text-white"
                 >
                   <FaEdit></FaEdit>
                 </button>
                 <button
                   onClick={() => handleDelete(review._id)}
-                  className="btn btn-xs btn-error text-white"
+                  className="btn btn-sm btn-error text-white"
                 >
                   <FaTrash></FaTrash>
                 </button>

@@ -217,7 +217,7 @@ const MyApplications = () => {
               <td>{app.feedback || "N/A"}</td>
               <td className="space-x-1 flex gap-1 items-center justify-center">
                 <button
-                  className="btn btn-xs btn-info text-white"
+                  className="btn btn-sm btn-info text-white"
                   onClick={() => {
                     setIsDetailsModalOpen(true);
                     setSelectedApp(app);
@@ -227,7 +227,7 @@ const MyApplications = () => {
                 </button>
 
                 <button
-                  className="btn btn-xs btn-warning text-white"
+                  className="btn btn-sm btn-warning text-white"
                   onClick={() => {
                     if (app.applicationStatus === "pending") {
                       setSelectedApp(app);
@@ -245,14 +245,14 @@ const MyApplications = () => {
                 </button>
 
                 <button
-                  className="btn btn-xs btn-error text-white"
+                  className="btn btn-sm btn-error text-white"
                   onClick={() => handleCancel(app._id)}
                 >
                   <FaTrash />
                 </button>
 
                 <button
-                  className="btn btn-xs btn-success text-white"
+                  className="btn btn-sm btn-success text-white"
                   onClick={() => {
                     setReviewTarget(app);
                     setIsReviewModalOpen(true);
