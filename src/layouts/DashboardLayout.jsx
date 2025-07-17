@@ -25,7 +25,7 @@ const DashLayout = () => {
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col">
           {/* Navbar for small screen */}
-          <div className="navbar bg-base-300 lg:hidden">
+          <div className="navbar bg-primary lg:hidden">
             <div className="flex-none">
               <label htmlFor="my-drawer" className="btn btn-square btn-ghost">
                 <svg
@@ -33,7 +33,7 @@ const DashLayout = () => {
                   className="h-6 w-6"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke="currentColor"
+                  stroke="white"
                 >
                   <path
                     strokeLinecap="round"

@@ -1,5 +1,10 @@
 import React from "react";
-import { FaUserGraduate, FaEnvelope, FaShieldAlt, FaGraduationCap } from "react-icons/fa";
+import {
+  FaUserGraduate,
+  FaEnvelope,
+  FaShieldAlt,
+  FaGraduationCap,
+} from "react-icons/fa";
 import useAuth from "../../../hooks/useAuth";
 import useUserRole from "../../../hooks/useUserRole";
 import useAxiosSecurity from "../../../hooks/UseAxiosSecurity";
@@ -10,10 +15,7 @@ const MyProfile = () => {
   const { user } = useAuth();
   const { role, roleLoading } = useUserRole();
   const axiosSecure = useAxiosSecurity();
-  const {
-    data: applications = [],
-    isLoading,
-  } = useQuery({
+  const { data: applications = [], isLoading } = useQuery({
     queryKey: ["applications", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(
@@ -27,7 +29,7 @@ const MyProfile = () => {
   if (isLoading) return <Loading />;
 
   return (
-    <div className="max-w-7xl mx-2 md:mx-auto mt-10 md:mt-44 p-6 bg-white rounded-2xl shadow-md border border-gray-100">
+    <div className="max-w-7xl mx-2 md:mx-auto mt-10 lg:mt-44 p-6 bg-white rounded-2xl shadow-md border border-gray-100">
       <h2 className="text-2xl font-bold mb-6 text-primary">My Profile</h2>
 
       <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
@@ -52,10 +54,18 @@ const MyProfile = () => {
             <FaEnvelope className="text-primary text-lg" />
             <span>{user?.email}</span>
           </div>
-          <div className="flex gap-3 items-center text-gray-700">
-            <FaGraduationCap className="text-primary text-lg"></FaGraduationCap>
-          {applications && <p>You applied in <span className="text-primary font-bold">{applications.length}</span> scholarships.</p>}
-          </div>
+          {applications.length > 0 && (
+            <div className="flex gap-3 items-center text-gray-700">
+              <FaGraduationCap className="text-primary text-lg"></FaGraduationCap>
+              <p>
+                You applied in{" "}
+                <span className="text-primary font-bold">
+                  {applications.length}
+                </span>{" "}
+                scholarships.
+              </p>
+            </div>
+          )}
 
           {!roleLoading && role !== "user" && (
             <div className="flex items-center gap-3 text-gray-700">

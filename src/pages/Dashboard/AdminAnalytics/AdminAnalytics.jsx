@@ -40,7 +40,7 @@ const AdminAnalytics = () => {
 
   return (
     <div className="p-6 w-full mx-auto">
-      <h2 className="text-3xl font-bold mb-8 text-emerald-600 text-center">
+      <h2 className="text-3xl font-bold mb-8 text-primary text-center">
         Admin Analytics Dashboard
       </h2>
       <div className="grid w-full grid-cols-1 lg:grid-cols-2 gap-6">
@@ -55,7 +55,7 @@ const AdminAnalytics = () => {
               <XAxis dataKey="scholarshipName" />
               <YAxis />
               <Tooltip />
-              <Bar dataKey="count" fill="#10B981" />
+              <Bar dataKey="count" fill="#17C5CE" />
             </BarChart>
           </ResponsiveContainer>
         </div>
