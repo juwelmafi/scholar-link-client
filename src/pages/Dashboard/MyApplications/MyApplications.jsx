@@ -173,7 +173,7 @@ const MyApplications = () => {
 
   return (
     <div className="overflow-x-auto mt-6">
-      <h2 className="text-2xl font-semibold mb-4 text-center">
+      <h2 className="text-2xl font-semibold text-primary mb-4 text-center">
         My Applications
       </h2>
       <table className="table table-zebra w-full">
@@ -192,16 +192,16 @@ const MyApplications = () => {
         </thead>
         <tbody>
           {applications.map((app, index) => (
-            <tr key={app._id}>
+            <tr key={app._id} className="text-xs md:text-sm">
               <td>{index + 1}</td>
-              <td>{app.universityName}</td>
+              <td className="line-clamp-2">{app.universityName}</td>
               <td>{app.subjectCategory}</td>
               <td>{app.applyingDegree}</td>
               <td>৳100</td> {/* Assuming fixed fees */}
               <td>৳50</td> {/* Assuming fixed service charge */}
               <td>
                 <span
-                  className={`badge ${
+                  className={`badge text-white ${
                     app.applicationStatus === "Rejected"
                       ? "badge-error"
                       : app.applicationStatus === "completed"
@@ -353,7 +353,7 @@ const MyApplications = () => {
               </div>
 
               <div className="modal-action">
-                <button type="submit" className="btn btn-success">
+                <button type="submit" className="btn btn-primary text-white">
                   Save
                 </button>
                 <button

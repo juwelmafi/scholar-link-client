@@ -92,7 +92,7 @@ const MyReviews = () => {
         </thead>
         <tbody>
           {reviews.map((review, index) => (
-            <tr key={review._id}>
+            <tr key={review._id} className="text-xs md:text-sm">
               <td>{index + 1}</td>
               <td>{review.scholarshipName}</td>
               <td>{review.universityName}</td>
@@ -101,13 +101,13 @@ const MyReviews = () => {
               <td className="space-x-1 flex gap-1 items-center">
                 <button
                   onClick={() => setEditReview(review)}
-                  className="btn btn-xs btn-warning"
+                  className="btn btn-xs btn-warning text-white"
                 >
                   <FaEdit></FaEdit>
                 </button>
                 <button
                   onClick={() => handleDelete(review._id)}
-                  className="btn btn-xs btn-error"
+                  className="btn btn-xs btn-error text-white"
                 >
                   <FaTrash></FaTrash>
                 </button>
@@ -139,7 +139,7 @@ const MyReviews = () => {
               />
 
               <div className="modal-action">
-                <button type="submit" className="btn btn-success">
+                <button type="submit" className="btn btn-primary text-white">
                   Update
                 </button>
                 <button
