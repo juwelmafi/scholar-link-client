@@ -60,18 +60,20 @@ const AllScholarshipsPage = () => {
             placeholder="Search by Scholarship, University or Degree"
             value={searchTerm}
             onChange={handleSearchChange}
-            className="input input-bordered w-80"
+            className="input input-bordered w-80 rounded-r-none outline-none"
           />
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary py-2 shadow-none -ml-2 text-white rounded-l-none">
             Search
           </button>
         </div>
 
         <div className="flex items-center gap-2">
-          <p>Per page</p>
+          <button type="button" className="btn btn-primary py-4 cursor-text shadow-none -mr-2 text-white rounded-r-none">
+            Per page
+          </button>
           <select
             id="limitSelect"
-            className="select"
+            className="select rounded-l-none"
             value={limit}
             onChange={handleLimitChange}
           >
@@ -107,25 +109,25 @@ const AllScholarshipsPage = () => {
                 {scholarship.scholarshipName}
               </h3>
               <p className="flex items-center text-sm text-gray-600 mb-1">
-                <FaUniversity className="mr-2 text-emerald-500" />
+                <FaUniversity className="mr-2 text-primary" />
                 {scholarship.universityName}
               </p>
               <p className="flex items-center text-sm text-gray-600 mb-2">
-                <FaMapMarkerAlt className="mr-2 text-emerald-500" />
+                <FaMapMarkerAlt className="mr-2 text-primary" />
                 {scholarship.city}, {scholarship.country}
               </p>
               <p className="flex items-center text-sm text-gray-600 mb-1">
-                <FaCalendar className="mr-2 text-emerald-500" />
+                <FaCalendar className="mr-2 text-primary" />
                 {new Date(scholarship.deadline).toLocaleDateString()}
               </p>
               {scholarship.averageRating ? (
                 <div className="text-yellow-500 flex items-center gap-2 text-sm mb-2">
-                  <FaStar className="text-emerald-500"></FaStar>{" "}
+                  <FaStar className="text-primary"></FaStar>{" "}
                   {scholarship.averageRating} / 5
                 </div>
               ) : (
                 <div className="text-gray-400 flex items-center gap-2 text-sm mb-2">
-                  <FaStar className="text-emerald-500"></FaStar> N/A
+                  <FaStar className="text-primary"></FaStar> N/A
                 </div>
               )}
               <div className="flex flex-wrap text-xs gap-2 mb-3">
@@ -141,7 +143,7 @@ const AllScholarshipsPage = () => {
               </div>
 
               <Link to={`/scholarships/${scholarship._id}`}>
-                <button className="btn btn-sm w-full bg-emerald-500 hover:bg-emerald-600 text-white mt-2">
+                <button className="btn btn-sm w-full bg-primary text-white mt-2">
                   View Details
                 </button>
               </Link>

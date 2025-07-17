@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useLocation } from "react-router";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import useUserRole from "../../hooks/useUserRole";
@@ -9,7 +9,18 @@ const Navbar = () => {
   const { user, logOut } = useAuth();
   const { role, roleLoading } = useUserRole();
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+  useEffect(() => {
+    if (!isHome) return;
 
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50); // You can adjust 50px as needed
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isHome]);
   // Scroll listener to update navbar style
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +30,12 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navbarClass = isHome
+    ? scrolled
+      ? "bg-white text-black shadow"
+      : "bg-transparent text-white"
+    : "bg-white text-black shadow";
 
   const navItems = (
     <>
@@ -59,7 +76,11 @@ const Navbar = () => {
       if (result.isConfirmed) {
         logOut()
           .then(() => {
-            Swal.fire("Logged Out!", "You have been successfully logged out.", "success");
+            Swal.fire(
+              "Logged Out!",
+              "You have been successfully logged out.",
+              "success"
+            );
           })
           .catch((error) => {
             console.log(error);
@@ -71,11 +92,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`fixed z-50 left-0 top-0 w-full shadow-sm transition-all duration-300 ${
-        scrolled
-          ? "bg-white text-black border-gray-200"
-          : "bg-transparent backdrop-blur-sm text-white border-white"
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 transition duration-300 ${navbarClass}`}
     >
       <div className="navbar max-w-7xl mx-auto">
         <div className="navbar-start">
@@ -88,10 +105,18 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
               </svg>
             </div>
-            <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
+            <ul
+              tabIndex={0}
+              className="menu menu-md dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow text-black"
+            >
               {navItems}
             </ul>
           </div>
@@ -115,12 +140,15 @@ const Navbar = () => {
                   />
                 </div>
               </div>
-              <button onClick={handleLogOut} className="btn btn-outline shadow-none hover:bg-primary hover:text-white rounded-full">
+              <button
+                onClick={handleLogOut}
+                className="btn btn-outline shadow-none hover:bg-primary hover:text-white rounded-full"
+              >
                 Logout
               </button>
             </div>
           ) : (
-            <Link to={"/login"} className="btn btn-sm btn-primary">
+            <Link to={"/login"} className="btn btn-outline shadow-none hover:bg-primary hover:text-white rounded-full">
               Sign In
             </Link>
           )}

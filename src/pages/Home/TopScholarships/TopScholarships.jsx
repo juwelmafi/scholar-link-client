@@ -27,15 +27,15 @@ const TopScholarshipSection = () => {
 
   return (
     <section className="py-10 px-4 max-w-7xl mx-auto">
-      <h2 className="text-3xl font-bold mb-8 text-emerald-600 text-center">
-        Top Scholarships
+      <h2 className="text-3xl font-bold mb-8 text-center">
+        Top <span className="text-primary">Scholarships</span>
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {topScholarships.map((scholarship) => (
           <div
             key={scholarship._id}
-            className="rounded-lg shadow-md hover:shadow-lg transition duration-300"
+            className="rounded-lg shadow-md hover:shadow-lg transition duration-300 bg-white"
           >
             <img
               src={scholarship.universityImage}
@@ -47,27 +47,27 @@ const TopScholarshipSection = () => {
                 {scholarship.scholarshipName}
               </h3>
               <p className="flex items-center text-sm text-gray-600 mb-1">
-                <FaUniversity className="mr-2 text-emerald-500" />
+                <FaUniversity className="mr-2 text-primary" />
                 {scholarship.universityName}
               </p>
               <p className="flex items-center text-sm text-gray-600 mb-1">
-                <FaMapMarkerAlt className="mr-2 text-emerald-500" />
+                <FaMapMarkerAlt className="mr-2 text-primary" />
                 {scholarship.city}, {scholarship.country}
               </p>
 
               <p className="flex items-center text-sm text-gray-600 mb-1">
-                <FaCalendar className="mr-2 text-emerald-500" />
+                <FaCalendar className="mr-2 text-primary" />
                 {new Date(scholarship.deadline).toLocaleDateString()}
               </p>
 
               {scholarship.averageRating ? (
                 <div className="text-yellow-500 flex items-center gap-2 text-sm mb-2">
-                  <FaStar className="text-emerald-500"></FaStar>{" "}
+                  <FaStar className="text-primary"></FaStar>{" "}
                   {scholarship.averageRating} / 5
                 </div>
               ) : (
                 <div className="text-gray-400 flex items-center gap-2 text-sm mb-2">
-                  <FaStar className="text-emerald-500"></FaStar> N/A
+                  <FaStar className="text-primary"></FaStar> N/A
                 </div>
               )}
 
@@ -84,7 +84,7 @@ const TopScholarshipSection = () => {
               </div>
 
               <Link to={`/scholarships/${scholarship._id}`}>
-                <button className="btn btn-sm w-full bg-emerald-500 hover:bg-emerald-600 text-white mt-2">
+                <button className="btn btn-sm w-full btn-primary text-white mt-2">
                   View Details
                 </button>
               </Link>

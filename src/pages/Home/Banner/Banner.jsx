@@ -6,12 +6,10 @@ import slider1 from "../../../assets/graduate.jpg";
 import slider2 from "../../../assets/harbard.jpg";
 import slider3 from "../../../assets/convocation.jpg";
 import { useNavigate } from "react-router";
-import { useState } from "react";
 
 const sliderImages = [slider1, slider2, slider3];
 
 const Banner = () => {
-  const [searchText, setSearchText] = useState("");
   const navigate = useNavigate();
 
   return (
@@ -37,7 +35,7 @@ const Banner = () => {
       <div className="absolute inset-0 bg-black/50 z-10"></div>
 
       {/* ✅ Left content fixed over slider */}
-      <div className="absolute inset-0 z-20 flex items-center px-6 md:px-16">
+      <div className="absolute inset-0 z-20 max-w-7xl mx-auto flex items-center px-6">
         <div className="max-w-xl text-white space-y-6">
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
             Your Study <span className="text-primary">Abroad</span>{" "}
@@ -47,33 +45,12 @@ const Banner = () => {
             Connecting You to Top Universities Worldwide, Scholarships, and
             Expert Guidance to Fulfill Your Dreams.
           </p>
-
-          {/* Search */}
-          <div className="relative max-w-md">
-            <input
-              type="text"
-              value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
-              placeholder="Search Courses, Universities..."
-              className="w-full py-3 px-5 pl-12 rounded-full shadow-lg focus:outline-none"
-            />
-            <button
-              onClick={() => {
-                if (searchText.trim()) {
-                  navigate(
-                    `/all-scholarships?q=${encodeURIComponent(
-                      searchText.trim()
-                    )}`
-                  );
-                }
-              }}
-              className="absolute right-1 top-1 bottom-1 bg-emerald-500 hover:bg-emerald-600 text-white px-6 rounded-full"
-            >
-              Search
-            </button>
-          </div>
-
-          {/* Stats */}
+          <button
+            onClick={() => navigate("/all-scholarships")}
+            className=" btn btn-primary text-white px-6 rounded-full"
+          >
+            Explore
+          </button>
         </div>
       </div>
     </div>
