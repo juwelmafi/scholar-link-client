@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { FaEdit, FaTrash, FaEye } from "react-icons/fa";
 import Swal from "sweetalert2";
@@ -26,7 +26,12 @@ const ManageScholarships = () => {
 
   const allScholarships = scholarships;
 
-
+useEffect(() => {
+    document.title = `Manage Scholarship | ScholarLink`;
+    return () => {
+      document.title = "ScholarLink";
+    };
+  }, []);
   // Handle delete
   const handleDelete = async (id) => {
     const confirm = await Swal.fire({

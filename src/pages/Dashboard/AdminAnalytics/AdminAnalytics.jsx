@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   BarChart,
   Bar,
@@ -37,6 +37,16 @@ const AdminAnalytics = () => {
       return res.data;
     },
   });
+
+  useEffect(() => {
+      document.title = `Analytics | ScholarLink`;
+      window.scroll(0, 0)
+      return () => {
+        document.title = "ScholarLink";
+      };
+    }, []);
+
+
 
   return (
     <div className="p-6 w-full mx-auto">

@@ -1,7 +1,15 @@
 import { Link } from "react-router";
 import { FaLock } from "react-icons/fa";
+import { useEffect } from "react";
 
 const ForbiddenAccess = () => {
+  useEffect(() => {
+      document.title = `Forbidden | ScholarLink`;
+      window.scroll(0, 0)
+      return () => {
+        document.title = "ScholarLink";
+      };
+    }, []);
   return (
     <div className="min-h-[90vh] flex items-center justify-center px-4">
       <div className="max-w-md text-center">

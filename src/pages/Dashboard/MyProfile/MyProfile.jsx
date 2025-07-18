@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   FaEnvelope,
   FaGraduationCap,
@@ -25,6 +25,15 @@ const MyProfile = () => {
     },
     enabled: !!user?.email,
   });
+
+  useEffect(() => {
+      document.title = `My Profile | ScholarLink`;
+      window.scroll(0, 0)
+      return () => {
+        document.title = "ScholarLink";
+      };
+    }, []);
+
 
   if (isLoading) return <Loading />;
 

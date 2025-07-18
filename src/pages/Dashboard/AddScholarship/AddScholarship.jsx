@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
@@ -9,14 +9,16 @@ const AddScholarship = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecurity();
   const [profilePic, setProfilePic] = useState("");
-  const {
-    register,
-    handleSubmit,
-    reset,
-  } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
-  
-      // Step 1: Upload image to imgbb
+  useEffect(() => {
+    document.title = `Add Scholarship | ScholarLink`;
+    return () => {
+      document.title = "ScholarLink";
+    };
+  }, []);
+
+  // Step 1: Upload image to imgbb
   const handleImageUpload = async (e) => {
     const image = e.target.files[0];
     // console.log(image);
@@ -31,7 +33,6 @@ const AddScholarship = () => {
 
   const onSubmit = async (data) => {
     try {
-
       // Step 2: Prepare final data
       const scholarship = {
         scholarshipName: data.scholarshipName,
@@ -159,10 +160,7 @@ const AddScholarship = () => {
         />
 
         <div className="col-span-1 md:col-span-2">
-          <button
-            type="submit"
-            className="btn btn-primary text-white w-full"
-          >
+          <button type="submit" className="btn btn-primary text-white w-full">
             Add Scholarship
           </button>
         </div>

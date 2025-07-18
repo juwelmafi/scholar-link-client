@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import useAxiosSecurity from "../../hooks/UseAxiosSecurity";
+import { useNavigate } from "react-router";
 
 
 const CheckoutForm = ({ applicationData, amount, onClose }) => {
@@ -10,7 +11,7 @@ const CheckoutForm = ({ applicationData, amount, onClose }) => {
  const axiosSecure = useAxiosSecurity();
   const [loading, setLoading] = useState(false);
   const [clientSecret, setClientSecret] = useState("");
-
+  const navigate = useNavigate();
   // Fetch clientSecret from backend
   useEffect(() => {
     if (amount > 0) {
@@ -66,6 +67,7 @@ const CheckoutForm = ({ applicationData, amount, onClose }) => {
         onClose?.();
         toast.success("Application Submitted Successfully!");
         // Redirect or clear form
+          navigate('/dashboard/my-applications')
       }
     }
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import {
@@ -46,6 +46,14 @@ const AllScholarshipsPage = () => {
     e.preventDefault();
     setPage(1);
   };
+
+   useEffect(() => {
+        document.title = `All Scholarsips | ScholarLink`;
+        return () => {
+          document.title = "ScholarLink";
+        };
+      }, []);
+
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10 pt-28">

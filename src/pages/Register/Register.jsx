@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router";
 import { FaArrowUp, FaEye, FaEyeSlash, FaUserCircle } from "react-icons/fa";
@@ -59,6 +59,13 @@ const Register = () => {
         toast.error(error);
       });
   };
+
+  useEffect(() => {
+      document.title = `Register | ScholarLink`;
+      return () => {
+        document.title = "ScholarLink";
+      };
+    }, []);
 
   const handleImageUpload = async (e) => {
     const image = e.target.files[0];

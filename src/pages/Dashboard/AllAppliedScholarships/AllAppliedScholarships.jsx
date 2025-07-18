@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../../../shared/Loading";
 import Swal from "sweetalert2";
@@ -41,6 +41,14 @@ const AllAppliedScholarships = () => {
       return res.data;
     },
   });
+
+  useEffect(() => {
+      document.title = `Manage Applications | ScholarLink`;
+      return () => {
+        document.title = "ScholarLink";
+      };
+    }, []);
+
 
   // Delete handler
   async function handleDelete(id) {

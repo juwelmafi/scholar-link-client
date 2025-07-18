@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
@@ -21,6 +21,13 @@ const ManageUsers = () => {
       return res.data;
     },
   });
+
+  useEffect(() => {
+      document.title = `Manage Users | ScholarLink`;
+      return () => {
+        document.title = "ScholarLink";
+      };
+    }, []);
 
   // Handle Delete
   const handleDelete = (id) => {

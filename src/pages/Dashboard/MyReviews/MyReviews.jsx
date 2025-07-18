@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 
@@ -6,6 +6,7 @@ import Loading from "../../../shared/Loading";
 import Swal from "sweetalert2";
 import useAxiosSecurity from "../../../hooks/UseAxiosSecurity";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import NoDataFoundPage from "../../NoDataFoundPage/NoDataFoundPage";
 
 const MyReviews = () => {
   const { user } = useAuth();
@@ -24,6 +25,14 @@ const MyReviews = () => {
     },
     enabled: !!user?.email,
   });
+
+  useEffect(() => {
+      document.title = `My Application | ScholarLink`;
+      return () => {
+        document.title = "ScholarLink";
+      };
+    }, []);
+
 
   const handleDelete = async (id) => {
     const confirm = await Swal.fire({
@@ -74,7 +83,12 @@ const MyReviews = () => {
     }
   };
 
+
+
   if (isLoading) return <Loading />;
+
+  if(reviews.length=== 0) return <NoDataFoundPage></NoDataFoundPage>
+
 
   return (
     <div className="overflow-x-auto mt-6">

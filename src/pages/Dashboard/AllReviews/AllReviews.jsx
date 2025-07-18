@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../../../shared/Loading";
 import Swal from "sweetalert2";
@@ -19,6 +19,13 @@ const AllReviews = () => {
       return res.data;
     },
   });
+
+  useEffect(() => {
+      document.title = `All Reviews | ScholarLink`;
+      return () => {
+        document.title = "ScholarLink";
+      };
+    }, []);
 
   const handleDelete = async (id) => {
     const result = await Swal.fire({

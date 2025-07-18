@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router";
 import { FaArrowLeft } from "react-icons/fa";
 
 const NotFound = () => {
+  useEffect(() => {
+      document.title = `404 | ScholarLink`;
+      window.scroll(0, 0)
+      return () => {
+        document.title = "ScholarLink";
+      };
+    }, []);
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-6 text-center">
       <h1 className="text-6xl font-bold text-primary mb-4">404</h1>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import Loading from "../../../shared/Loading";
@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { useState } from "react";
 import { FaEye, FaEdit, FaTrash, FaStar } from "react-icons/fa";
 import useAxiosSecurity from "../../../hooks/UseAxiosSecurity";
+import NoDataFoundPage from "../../NoDataFoundPage/NoDataFoundPage";
 const MyApplications = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecurity();
@@ -42,7 +43,16 @@ const MyApplications = () => {
     enabled: !!user?.email, // Only run query when email exists
   });
 
+  useEffect(() => {
+    document.title = `My Application | ScholarLink`;
+    return () => {
+      document.title = "ScholarLink";
+    };
+  }, []);
+
   if (isLoading) return <Loading />;
+
+  if(applications.length === 0) return <NoDataFoundPage></NoDataFoundPage>
 
   // handle submit
   const handelFormSubmit = async (e) => {
@@ -149,7 +159,7 @@ const MyApplications = () => {
     const review = {
       scholarshipId: reviewTarget.scholarshipId,
       scholarshipName: reviewTarget.scholarshipName || "Unknown",
-      universityName: reviewTarget.universityName || "Unknown", 
+      universityName: reviewTarget.universityName || "Unknown",
       userName: user?.displayName,
       userEmail: user?.email,
       userImage: user?.photoURL || "",

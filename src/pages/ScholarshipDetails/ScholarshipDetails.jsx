@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../../shared/Loading";
@@ -27,6 +27,16 @@ const ScholarshipDetails = () => {
     },
   });
 
+    useEffect(() => {
+      document.title = `Scholarsip Details | ScholarLink`;
+      window.scroll(0, 0)
+      return () => {
+        document.title = "ScholarLink";
+      };
+    }, []);
+
+
+
   if (isLoading) return <Loading></Loading>;
 
   const {
@@ -47,6 +57,9 @@ const ScholarshipDetails = () => {
     postedBy,
   } = scholarship;
 
+  
+
+
   return (
     <div className="max-w-7xl mx-auto py-10 pt-34 px-6">
       <div className="grid md:grid-cols-2 items-start gap-10">
@@ -54,7 +67,7 @@ const ScholarshipDetails = () => {
           <img
             src={universityImage}
             alt={scholarshipName}
-            className="rounded-lg md:h-[58vh] shadow-lg w-full"
+            className="rounded-lg md:h-[58vh] object-cover shadow-lg w-full"
           />
         </div>
         <div>

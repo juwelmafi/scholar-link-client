@@ -1,7 +1,17 @@
 import { Link } from "react-router";
 import { FaArrowLeft } from "react-icons/fa";
+import { useEffect } from "react";
 
 const ComingSoonPage = () => {
+
+  useEffect(() => {
+      document.title = `Comming soon | ScholarLink`;
+      window.scroll(0, 0)
+      return () => {
+        document.title = "ScholarLink";
+      };
+    }, []);
+
   return (
     <div className="flex items-center justify-center h-screen bg-emerald-50 text-center px-4">
       <div>

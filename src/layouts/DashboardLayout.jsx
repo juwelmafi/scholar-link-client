@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, NavLink, Outlet } from "react-router";
 // import Logo from "../../Pages/shared/Logo/Logo";
 import {
@@ -19,6 +19,12 @@ import Logo from "../shared/Logo";
 
 const DashLayout = () => {
   const { role, roleLoading } = useUserRole();
+  useEffect(() => {
+    document.title = `Dashboard | ScholarLink`;
+    return () => {
+      document.title = "ScholarLink";
+    };
+  }, []);
   return (
     <div>
       <div className="drawer lg:drawer-open">

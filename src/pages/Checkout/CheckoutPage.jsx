@@ -8,7 +8,6 @@ import CheckoutForm from "./CheckoutForm";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecurity from "../../hooks/UseAxiosSecurity";
 
-
 const CheckoutPage = () => {
   const { id } = useParams();
   const { user } = useAuth();
@@ -36,8 +35,13 @@ const CheckoutPage = () => {
     },
   });
 
-  const { universityName, subjectCategory, scholarshipCategory, scholarshipName, deadline } =
-    scholarship || {};
+  const {
+    universityName,
+    subjectCategory,
+    scholarshipCategory,
+    scholarshipName,
+    deadline,
+  } = scholarship || {};
 
   const {
     register,
@@ -93,6 +97,13 @@ const CheckoutPage = () => {
   };
   // console.log(user);
   // console.log(formData);
+
+  useEffect(() => {
+    document.title = `Checkout Form | ScholarLink`;
+    return () => {
+      document.title = "ScholarLink";
+    };
+  }, []);
 
   if (isLoading) return <Loading />;
 
@@ -214,7 +225,10 @@ const CheckoutPage = () => {
           className="input input-bordered w-full bg-gray-100"
         />
 
-        <button type="submit" className="btn btn-primary w-full mt-4 text-white">
+        <button
+          type="submit"
+          className="btn btn-primary w-full mt-4 text-white"
+        >
           Pay & Apply
         </button>
       </form>
@@ -240,10 +254,13 @@ const CheckoutPage = () => {
           />
 
           <div className="modal-action">
-            <button onClick={() => {
-              setShowModal(false);
-              toast.error('Application cancelled')
-            }} className="btn btn-sm">
+            <button
+              onClick={() => {
+                setShowModal(false);
+                toast.error("Application cancelled");
+              }}
+              className="btn btn-sm"
+            >
               Cancel
             </button>
           </div>
