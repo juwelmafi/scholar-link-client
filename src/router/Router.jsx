@@ -22,6 +22,7 @@ import AdminModRout from "../routes/AdminModRout";
 import ForbiddenAccess from "../pages/Forbidden/Forbidden";
 import NotFound from "../pages/NotFound/NotFound";
 import AdminAnalytics from "../pages/Dashboard/AdminAnalytics/AdminAnalytics";
+import ComingSoonPage from "../pages/ComingSoonPage/ComingSoonPage";
 
 export const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ export const router = createBrowserRouter([
         path: "/forbidden-access",
         element: <ForbiddenAccess></ForbiddenAccess>,
       },
+      {
+        path:'/coming-soon',
+        element: <ComingSoonPage></ComingSoonPage>
+      }
     ],
   },
   {
