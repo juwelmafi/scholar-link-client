@@ -56,7 +56,7 @@ ScholarLink is a comprehensive, full-stack Scholarship Management System that co
 ---
 
 
----
+<!-- ---
 
 ## ⚙️ How to Run Locally
 
@@ -118,4 +118,4 @@ VITE_STRIPE_PUBLISHABLE_KEY=your_publishable_key
 
 ### ▶️ Run Frontend
 
-`npm run dev`
+`npm run dev` -->
