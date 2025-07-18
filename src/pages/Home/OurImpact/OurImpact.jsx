@@ -43,11 +43,11 @@ const OurImpact = () => {
         <h2 className="text-3xl font-bold mb-8">
           Our <span className="text-primary">Impact</span>
         </h2>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 px-4 lg:px-0">
           {stats.map((s, i) => (
             <div
               key={i}
-              className="text-center md:border-r border-gray-200 px-6 py-8 bg-white  rounded shadow"
+              className="text-center  px-6 py-8 bg-white  rounded shadow"
             >
               <div className="flex justify-center mb-4">{s.icon}</div>
               <h3 className="text-4xl font-bold lg:text-5xl xl:text-6xl text-primary">
