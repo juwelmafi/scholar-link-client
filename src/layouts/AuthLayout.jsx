@@ -6,7 +6,7 @@ import login from '../assets/login.svg'
 const AuthLayout = () => {
 
   return (
-    <div className="max-w-6xl md:px-5 lg:px-0 mx-auto mt-2 lg:mt-5 mb-5">
+    <div className="max-w-6xl min-h-full pt-2 md:pt-10 lg:pt-20 md:px-5 lg:px-0 mx-auto lg:mt-5 mb-5">
       <div>
         <Logo></Logo>
       </div>
