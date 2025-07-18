@@ -50,7 +50,7 @@ const DashLayout = () => {
                 </svg>
               </label>
             </div>
-            <div className="flex-1 px-2">{/* <Logo></Logo> */}</div>
+            <div className="flex-1 text-white font-bold text-2xl text-center">Dashboard</div>
           </div>
 
           {/* Page Content */}
