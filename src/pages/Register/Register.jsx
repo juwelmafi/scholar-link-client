@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router";
-import { FaArrowUp, FaUserCircle } from "react-icons/fa";
+import { FaArrowUp, FaEye, FaEyeSlash, FaUserCircle } from "react-icons/fa";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import SocialLogin from "../../shared/SocialLogin";
@@ -19,6 +19,8 @@ const Register = () => {
   const navigate = useNavigate();
   const [imagePreview, setImagePreview] = useState(null);
   const [profilePic, setProfilePic] = useState("");
+  const [showPass, setShowPass] = useState(false);
+
   const onSubmit = (data) => {
     console.log(data);
     createUser(data?.email, data?.password)
@@ -138,26 +140,39 @@ const Register = () => {
 
           {/* password field */}
           <label className="label">Password</label>
-          <input
-            type="password"
-            className="input w-full lg:w-[20rem]"
-            placeholder="Password"
-            {...register("password", {
-              required: "Password is required",
-              minLength: {
-                value: 6,
-                message: "Password must be at least 6 characters",
-              },
-              validate: {
-                hasCapital: (value) =>
-                  /[A-Z]/.test(value) ||
-                  "Must include at least one capital letter",
-                hasSpecialChar: (value) =>
-                  /[!@#$%^&*(),.?":{}|<>]/.test(value) ||
-                  "Must include at least one special character",
-              },
-            })}
-          />
+          <div className="relative w-full lg:w-[20rem]">
+            <input
+              type={showPass ? "text" : "password"}
+              className="input w-full"
+              placeholder="Password"
+              {...register("password", {
+                required: "Password is required",
+                minLength: {
+                  value: 6,
+                  message: "Password must be at least 6 characters",
+                },
+                validate: {
+                  hasCapital: (value) =>
+                    /[A-Z]/.test(value) ||
+                    "Must include at least one capital letter",
+                  hasSpecialChar: (value) =>
+                    /[!@#$%^&*(),.?":{}|<>]/.test(value) ||
+                    "Must include at least one special character",
+                },
+              })}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPass(!showPass)}
+              className="absolute top-3 right-3"
+            >
+              {showPass ? (
+                <FaEyeSlash size={18} className="text-gray-500" />
+              ) : (
+                <FaEye size={18} className="text-gray-500" />
+              )}
+            </button>
+          </div>
           {errors.password && (
             <p className="text-red-500">{errors.password.message}</p>
           )}
