@@ -22,10 +22,10 @@ const Register = () => {
   const [showPass, setShowPass] = useState(false);
 
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     createUser(data?.email, data?.password)
-      .then(async (result) => {
-        console.log(result.user);
+      .then(async () => {
+        // console.log(result.user);
 
         //update user info in database
         const userInfo = {
@@ -36,8 +36,8 @@ const Register = () => {
           last_logged_in: new Date().toISOString(),
         };
 
-        const userRes = await axiosPublic.post("/users", userInfo);
-        console.log(userRes.data);
+         await axiosPublic.post("/users", userInfo);
+        // console.log(userRes);
 
         //update user profile in firebase
 
@@ -62,7 +62,7 @@ const Register = () => {
 
   const handleImageUpload = async (e) => {
     const image = e.target.files[0];
-    console.log(image);
+    // console.log(image);
     if (image) {
       const imageUrl = URL.createObjectURL(image);
       setImagePreview(imageUrl);

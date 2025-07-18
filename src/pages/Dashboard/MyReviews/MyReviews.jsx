@@ -38,7 +38,7 @@ const MyReviews = () => {
       try {
         const res = await axiosSecure.delete(`/reviews/${id}`);
         if (res.data.success) {
-          console.log('deleted', res.data)
+          // console.log('deleted', res.data)
           Swal.fire("Deleted!", "Your review has been removed.", "success");
           refetch();
         }

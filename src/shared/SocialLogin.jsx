@@ -11,10 +11,10 @@ const SocialLogin = () => {
   const axiosPublic = useAxiosPublic();
   const from = location.state?.from || "/";
   const handleGoogleLogIn = () => {
-    console.log("btn clicked");
+    // console.log("btn clicked");
     googleLogIn()
       .then(async (result) => {
-        console.log(result.user);
+        // console.log(result.user);
 
         //update user info in database
         const user = result.user;
@@ -25,8 +25,8 @@ const SocialLogin = () => {
           created_at: new Date().toISOString(),
           last_logged_in: new Date().toISOString(),
         };
-        const userRes = await axiosPublic.post("/users", userInfo);
-        console.log("google login", userRes.data);
+        await axiosPublic.post("/users", userInfo);
+        // console.log("google login", userRes.data);
         navigate(from);
       })
       .catch((error) => {

@@ -32,7 +32,7 @@ const useAxiosSecurity = () => {
       (res) => res,
       (error) => {
         const status = error?.response?.status;
-        console.log("Inside response interceptor:", status);
+        // console.log("Inside response interceptor:", status);
         if (status === 403) {
           navigate("/dashboard/forbidden-access");
         } else if (status === 401) {

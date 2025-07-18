@@ -19,7 +19,7 @@ const AddScholarship = () => {
       // Step 1: Upload image to imgbb
   const handleImageUpload = async (e) => {
     const image = e.target.files[0];
-    console.log(image);
+    // console.log(image);
     const formData = new FormData();
     formData.append("image", image);
     const imageUploadUrl = `https://api.imgbb.com/1/upload?key=${

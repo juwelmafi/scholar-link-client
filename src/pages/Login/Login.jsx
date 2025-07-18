@@ -19,10 +19,10 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [showPass, setShowPass] = useState(false);
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     signInUser(data?.email, data?.password)
-      .then((res) => {
-        console.log(res.user);
+      .then(() => {
+        // console.log(res.user);
         navigate(from);
         setErrorMessage("");
       })
