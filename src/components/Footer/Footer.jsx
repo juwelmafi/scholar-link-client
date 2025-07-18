@@ -4,7 +4,7 @@ import Logo from "../../shared/Logo"; // adjust path if needed
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-white pt-12 pb-4 mt-10">
+    <footer className="bg-primary text-white pt-12 pb-4">
       <div className="max-w-7xl mx-auto px-4 text-center">
         <h2 className="text-2xl font-semibold mb-2">Dreaming of studying abroad?</h2>
         <p className="mb-4">Start planning today! Experience Study Abroad Journey with Scholar Link</p>
@@ -26,10 +26,10 @@ const Footer = () => {
               Empowering students worldwide with expert guidance, scholarships, and opportunities to achieve their dreams of studying abroad.
             </p>
             <div className="flex gap-4 mt-4 text-lg">
-              <a href="#"><FaFacebookF /></a>
-              <a href="#"><FaTwitter /></a>
-              <a href="#"><FaYoutube /></a>
-              <a href="#"><FaInstagram /></a>
+              <a href="https://www.facebook.com/juwelmafi"><FaFacebookF /></a>
+              <a href="https://x.com/juwelmafi"><FaTwitter /></a>
+              <a href="https://www.youtube.com/@juwelmafi"><FaYoutube /></a>
+              <a href="https://www.instagram.com/juwelmafi/"><FaInstagram /></a>
             </div>
           </div>
 
@@ -77,8 +77,8 @@ const Footer = () => {
         <div className="mt-10 text-sm flex flex-col md:flex-row justify-between items-center border-t border-white/20 pt-4">
           <p>© {new Date().getFullYear()}, Scholar Link All Rights Reserved</p>
           <div className="flex gap-6 mt-2 md:mt-0">
-            <Link to="/privacy-policy">Privacy Policy</Link>
-            <Link to="/terms-of-use">Terms of Use</Link>
+            <Link to="/coming-soon">Privacy Policy</Link>
+            <Link to="/coming-soon">Terms of Use</Link>
           </div>
         </div>
       </div>
