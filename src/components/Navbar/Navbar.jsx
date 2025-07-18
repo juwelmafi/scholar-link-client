@@ -129,7 +129,7 @@ const Navbar = () => {
           {user ? (
             <div className="flex items-center gap-3">
               
-              <div className="avatar w-10">
+              <div className="avatar tooltip w-10 tooltip-left" data-tip={user?.displayName}>
                 <div className="ring-primary ring-offset-base-100 w-10 rounded-full ring-2 ring-offset-2">
                   <img
                     src={
