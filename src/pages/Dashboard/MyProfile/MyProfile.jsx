@@ -1,9 +1,10 @@
 import React from "react";
 import {
-  FaUserGraduate,
   FaEnvelope,
-  FaShieldAlt,
   FaGraduationCap,
+  FaShieldAlt,
+  FaUserGraduate,
+  FaPhoneAlt,
 } from "react-icons/fa";
 import useAuth from "../../../hooks/useAuth";
 import useUserRole from "../../../hooks/useUserRole";
@@ -15,70 +16,76 @@ const MyProfile = () => {
   const { user } = useAuth();
   const { role, roleLoading } = useUserRole();
   const axiosSecure = useAxiosSecurity();
+
   const { data: applications = [], isLoading } = useQuery({
     queryKey: ["applications", user?.email],
     queryFn: async () => {
-      const res = await axiosSecure.get(
-        `/applications?userEmail=${user.email}`
-      );
+      const res = await axiosSecure.get(`/applications?userEmail=${user.email}`);
       return res.data;
     },
-    enabled: !!user?.email, // Only run query when email exists
+    enabled: !!user?.email,
   });
 
   if (isLoading) return <Loading />;
 
   return (
-    <div className="max-w-7xl mx-2 md:mx-auto mt-10 lg:mt-44 p-6 bg-white rounded-2xl shadow-md border border-gray-100">
-      <h2 className="text-2xl font-bold mb-6 text-primary">My Profile</h2>
-
-      <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-        <div className="flex-shrink-0">
-          <img
-            src={
-              user?.photoURL || "https://i.ibb.co/Fz1y8ZY/user-placeholder.jpg"
-            }
-            alt="Profile"
-            className="w-32 h-32 rounded-full border-4 border-primary shadow-md object-cover"
-          />
+    <div className="w-full mx-auto p-4 md:p-10 mt-6">
+      {/* Header */}
+      <div className="relative bg-gray-100 rounded-2xl shadow overflow-hidden">
+        <div className="h-40 md:h-60 bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: 'url(https://i.ibb.co/zhDGPNHr/bg.jpg)' }}>
+          <div className="absolute top-24 left-4 md:top-42 md:left-6">
+            <img
+              src={user?.photoURL || "https://i.ibb.co/Fz1y8ZY/user-placeholder.jpg"}
+              alt="Profile"
+              className="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-primary shadow-md object-cover"
+            />
+          </div>
         </div>
 
-        <div className="flex-1 space-y-3">
-          <div className="flex items-center gap-3 text-gray-700">
-            <FaUserGraduate className="text-primary text-lg" />
+        <div className="p-4 md:p-8 pt-10 md:pt-20 bg-white">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-gray-800">
+                {user?.displayName || "Not Available"}
+              </h2>
+              <p className="text-sm text-gray-500">Student</p>
+              <p className="text-sm text-gray-500">Aspiring for scholarship in aborad.</p>
+            </div>
+            <div className="md:text-right mt-2 md:mt-0">
+              <p className="text-sm text-gray-500">{user?.email}</p>
+              <p className="text-sm text-gray-500">+91 000 000 0000</p>
+              <div className="mt-2 flex flex-col items-start md:items-end">
+                <div className="w-32 h-2 bg-gray-200 rounded-full">
+                  <div className="h-2 bg-primary rounded-full" style={{ width: "80%" }}>
 
-            <span>{user?.displayName || "Not Available"}</span>
+                  </div>
+                </div>
+                <p className="text-xs text-gray-500 mt-1">Profile Strength: 80%</p>
+              </div>
+            </div>
           </div>
 
-          <div className="flex items-center gap-3 text-gray-700">
-            <FaEnvelope className="text-primary text-lg" />
-            <span>{user?.email}</span>
-          </div>
-          {applications.length > 0 && (
-            <div className="flex gap-3 items-center text-gray-700">
-              <FaGraduationCap className="text-primary text-lg"></FaGraduationCap>
-              <p>
-                You applied in{" "}
-                <span className="text-primary font-bold">
-                  {applications.length}
-                </span>{" "}
-                scholarships.
-              </p>
-            </div>
-          )}
+          {/* Applications and Role */}
+          <div className="mt-8 space-y-2">
+            {applications.length > 0 && (
+              <div className="flex items-center gap-2 text-gray-700">
+                <FaGraduationCap className="text-primary text-lg" />
+                <span>You applied in <strong className="text-primary">{applications.length}</strong> scholarships.</span>
+              </div>
+            )}
 
-          {!roleLoading && role !== "user" && (
-            <div className="flex items-center gap-3 text-gray-700">
-              <FaShieldAlt className="text-primary text-lg" />
-              <span className="capitalize">{role}</span>
-            </div>
-          )}
+            {!roleLoading && role !== "user" && (
+              <div className="flex items-center gap-2 text-gray-700">
+                <FaShieldAlt className="text-primary text-lg" />
+                <span className="capitalize">{role}</span>
+              </div>
+            )}
+          </div>
+
+          <p className="text-center text-xs text-gray-400 mt-10">
+            Welcome to Scholar Link — Empowering your global education journey.
+          </p>
         </div>
-      </div>
-
-      {/* Optional: Footer Section */}
-      <div className="mt-8 text-sm text-center text-gray-400">
-        Welcome to Scholar Link — Empowering your global education journey.
       </div>
     </div>
   );
