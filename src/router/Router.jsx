@@ -24,6 +24,7 @@ import NotFound from "../pages/NotFound/NotFound";
 import AdminAnalytics from "../pages/Dashboard/AdminAnalytics/AdminAnalytics";
 import ComingSoonPage from "../pages/ComingSoonPage/ComingSoonPage";
 import About from "../pages/About/About";
+import Contact from "../pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -54,7 +55,7 @@ export const router = createBrowserRouter([
       {
         path: "/contact",
         element: <PrivateRoute>
-          
+          <Contact/>
         </PrivateRoute>
       },
       {

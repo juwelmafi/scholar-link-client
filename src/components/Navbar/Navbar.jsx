@@ -50,6 +50,11 @@ const Navbar = () => {
           <NavLink to="/dashboard">Dashboard</NavLink>
         </li>
       )}
+      {!roleLoading && user && role === "user" && (
+        <li>
+          <NavLink to="/contact">Contact</NavLink>
+        </li>
+      )}
       {!roleLoading && role === "admin" && (
         <li>
           <NavLink to="/dashboard">Admin Dashboard</NavLink>
@@ -61,7 +66,7 @@ const Navbar = () => {
         </li>
       )}
       <li>
-        <NavLink to="/about">About us</NavLink>
+        <NavLink to="/about">About Us</NavLink>
       </li>
     </>
   );
