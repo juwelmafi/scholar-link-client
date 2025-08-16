@@ -23,6 +23,7 @@ import ForbiddenAccess from "../pages/Forbidden/Forbidden";
 import NotFound from "../pages/NotFound/NotFound";
 import AdminAnalytics from "../pages/Dashboard/AdminAnalytics/AdminAnalytics";
 import ComingSoonPage from "../pages/ComingSoonPage/ComingSoonPage";
+import About from "../pages/About/About";
 
 export const router = createBrowserRouter([
   {
@@ -39,12 +40,22 @@ export const router = createBrowserRouter([
         element: <Scholarships />,
       },
       {
+        path: "/about",
+        element: <About></About>
+      },
+      {
         path: "/scholarships/:id",
         element: (
           <PrivateRoute>
             <ScholarshipDetails />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/contact",
+        element: <PrivateRoute>
+          
+        </PrivateRoute>
       },
       {
         path: "/checkout/:id",

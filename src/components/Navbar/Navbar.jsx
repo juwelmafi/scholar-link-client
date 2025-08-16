@@ -60,6 +60,9 @@ const Navbar = () => {
           <NavLink to="/dashboard">Moderator Dashboard</NavLink>
         </li>
       )}
+      <li>
+        <NavLink to="/about">About us</NavLink>
+      </li>
     </>
   );
 
