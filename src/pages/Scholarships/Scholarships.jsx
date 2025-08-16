@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-
 import {
   FaMapMarkerAlt,
   FaUniversity,
@@ -18,19 +17,40 @@ const AllScholarshipsPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(6); // Default cards per page
+  const [sortOrder, setSortOrder] = useState(""); // "", "asc", "desc"
+
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["scholarships", searchTerm, page, limit],
+    queryKey: ["scholarships", searchTerm, page, limit, sortOrder],
     queryFn: async () => {
-      const res = await axiosPublic.get("/scholarships", {
-        params: { search: searchTerm, page, limit },
-      });
+      const params = { search: searchTerm, page, limit };
+      // Send server-side sorting params if selected
+      if (sortOrder) {
+        params.sortBy = "applicationFee";
+        params.order = sortOrder; // "asc" | "desc"
+      }
+      const res = await axiosPublic.get("/scholarships", { params });
       return res.data;
     },
     keepPreviousData: true,
   });
 
-  const scholarships = data?.scholarships || [];
+  // Helper to read fee robustly
+  const getFee = (s) => {
+    const v = s?.applicationFee ?? s?.application_fee ?? 0;
+    const n = typeof v === "string" ? parseFloat(v) : Number(v);
+    return Number.isFinite(n) ? n : 0;
+  };
+
+  // Server result
+  let scholarships = data?.scholarships || [];
   const totalPages = data?.totalPages || 1;
+
+  // Client-side fallback sort (affects only current page set)
+  if (sortOrder && scholarships.length) {
+    scholarships = [...scholarships].sort((a, b) =>
+      sortOrder === "asc" ? getFee(a) - getFee(b) : getFee(b) - getFee(a)
+    );
+  }
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
@@ -47,22 +67,26 @@ const AllScholarshipsPage = () => {
     setPage(1);
   };
 
-   useEffect(() => {
-        document.title = `All Scholarsips | ScholarLink`;
-        return () => {
-          document.title = "ScholarLink";
-        };
-      }, []);
+  const handleSortChange = (e) => {
+    setSortOrder(e.target.value);
+    setPage(1);
+  };
 
+  useEffect(() => {
+    document.title = `All Scholarsips | ScholarLink`;
+    return () => {
+      document.title = "ScholarLink";
+    };
+  }, []);
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10 pt-28">
-      {/* Controls: Search + Limit */}
+      {/* Controls: Search + Limit + Sort */}
       <form
         onSubmit={handleSearchSubmit}
         className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4"
       >
-        <div className="flex gap-2">
+        <div className="flex gap-2 w-full md:w-auto">
           <input
             type="text"
             placeholder="Search by Scholarship, University or Degree"
@@ -70,30 +94,60 @@ const AllScholarshipsPage = () => {
             onChange={handleSearchChange}
             className="input input-bordered w-full rounded-r-none outline-none"
           />
-          <button type="submit" className="btn btn-primary py-2 shadow-none -ml-2 text-white rounded-l-none">
+          <button
+            type="submit"
+            className="btn btn-primary py-2 shadow-none -ml-2 text-white rounded-l-none"
+          >
             Search
           </button>
         </div>
 
-        <div className="flex items-center gap-2">
-          <button type="button" className="btn btn-primary py-4 cursor-text shadow-none -mr-2 text-white rounded-r-none">
-            Per page
-          </button>
-          <select
-            id="limitSelect"
-            className="select rounded-l-none"
-            value={limit}
-            onChange={handleLimitChange}
-          >
-            <option value={3}>3</option>
-            <option value={6}>6</option>
-            <option value={9}>9</option>
-            <option value={12}>12</option>
-          </select>
+        <div className="flex items-center gap-4">
+          {/* Per page */}
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              className="btn btn-primary py-4 cursor-text shadow-none -mr-2 text-white rounded-r-none"
+            >
+              Per page
+            </button>
+            <select
+              id="limitSelect"
+              className="select rounded-l-none"
+              value={limit}
+              onChange={handleLimitChange}
+            >
+              <option value={3}>3</option>
+              <option value={6}>6</option>
+              <option value={9}>9</option>
+              <option value={12}>12</option>
+            </select>
+          </div>
+
+          {/* Sort by Application Fee */}
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              className="btn btn-primary py-4 cursor-text shadow-none -mr-2 text-white rounded-r-none"
+            >
+              Sort by Fee
+            </button>
+            <select
+              id="sortFeeSelect"
+              className="select rounded-l-none"
+              value={sortOrder}
+              onChange={handleSortChange}
+            >
+              <option value="">None</option>
+              <option value="asc">Low → High</option>
+              <option value="desc">High → Low</option>
+            </select>
+          </div>
         </div>
       </form>
+
       {/* Scholarships Grid */}
-      {isLoading && <Loading></Loading>}
+      {isLoading && <Loading />}
       {isError && (
         <p className="text-center text-red-600">Failed to load scholarships.</p>
       )}
@@ -130,14 +184,15 @@ const AllScholarshipsPage = () => {
               </p>
               {scholarship.averageRating ? (
                 <div className="text-yellow-500 flex items-center gap-2 text-sm mb-2">
-                  <FaStar className="text-primary"></FaStar>{" "}
-                  {scholarship.averageRating} / 5
+                  <FaStar className="text-primary" /> {scholarship.averageRating} / 5
                 </div>
               ) : (
                 <div className="text-gray-400 flex items-center gap-2 text-sm mb-2">
-                  <FaStar className="text-primary"></FaStar> N/A
+                  <FaStar className="text-primary" /> N/A
                 </div>
               )}
+
+              {/* badges */}
               <div className="flex flex-wrap text-xs gap-2 mb-3">
                 <span className="px-2 py-1 bg-emerald-100 text-emerald-600 rounded">
                   {scholarship.degree}
@@ -163,7 +218,6 @@ const AllScholarshipsPage = () => {
       {/* Pagination */}
       {totalPages > 1 && (
         <div className="flex justify-center items-center gap-2 mt-8 flex-wrap">
-          {/* Previous Button */}
           <button
             className="btn btn-sm"
             disabled={page === 1}
@@ -172,7 +226,6 @@ const AllScholarshipsPage = () => {
             <FaChevronLeft className="mr-1" /> Prev
           </button>
 
-          {/* Page Number Buttons */}
           {Array.from({ length: totalPages }, (_, i) => i + 1).map(
             (pageNumber) => (
               <button
@@ -187,7 +240,6 @@ const AllScholarshipsPage = () => {
             )
           )}
 
-          {/* Next Button */}
           <button
             className="btn btn-sm"
             disabled={page === totalPages}
