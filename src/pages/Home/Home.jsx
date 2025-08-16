@@ -4,6 +4,9 @@ import OurImpact from './OurImpact/OurImpact';
 import StudentReviews from './StudentReviews/StudentReviews';
 import UniversityLogoSlider from './UniversityLogoSlider/UniversityLogoSlider';
 import Banner from './Banner/Banner';
+import Newsletter from './Newsletter/Newsletter';
+import PromotionalSection from './Promote/PromotionalSection';
+import HowItWorks from './HowItWorks/HowItWorks';
 
 const Home = () => {
    useEffect(() => {
@@ -19,6 +22,9 @@ const Home = () => {
       <OurImpact></OurImpact>
       <UniversityLogoSlider></UniversityLogoSlider>
       <StudentReviews></StudentReviews>
+      <HowItWorks/>
+      <PromotionalSection/>
+      <Newsletter/>
     </div>
   );
 };
