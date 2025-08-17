@@ -59,7 +59,7 @@ const AllReviews = () => {
         {reviews.map((review) => (
           <div
             key={review._id}
-            className="bg-white rounded border border-primary p-4 flex flex-col justify-between min-h-[320px]"
+            className="bg-base-200 rounded border border-primary p-4 flex flex-col justify-between min-h-[320px]"
           >
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-4">
@@ -70,7 +70,7 @@ const AllReviews = () => {
                 />
                 <div>
                   <p className="font-semibold">{review.userName}</p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-muted">
                     {new Date(review.date).toLocaleDateString()}
                   </p>
                 </div>
@@ -88,7 +88,7 @@ const AllReviews = () => {
                 <span>{review.rating}</span>
               </div>
 
-              <p className="text-sm text-gray-700 line-clamp-3">
+              <p className="text-sm text-text line-clamp-3">
                 {review.comment}
               </p>
             </div>
