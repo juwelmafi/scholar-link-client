@@ -22,7 +22,7 @@ const ForbiddenAccess = () => {
         </p>
         <Link
           to="/"
-          className="inline-block bg-primary text-black font-semibold px-6 py-2 rounded-xl transition-all duration-200"
+          className="inline-block bg-primary text-text font-semibold px-6 py-2 rounded-xl transition-all duration-200"
         >
           Go Home
         </Link>

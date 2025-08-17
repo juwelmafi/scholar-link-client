@@ -152,14 +152,14 @@ const AllScholarshipsPage = () => {
         <p className="text-center text-red-600">Failed to load scholarships.</p>
       )}
       {!isLoading && scholarships.length === 0 && (
-        <p className="text-center text-gray-500">No scholarships found.</p>
+        <p className="text-center text-text-muted">No scholarships found.</p>
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {scholarships.map((scholarship) => (
           <div
             key={scholarship._id}
-            className="bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300"
+            className="bg-base-100 rounded-lg shadow-md hover:shadow-lg transition duration-300"
           >
             <img
               src={scholarship.universityImage}
@@ -167,18 +167,18 @@ const AllScholarshipsPage = () => {
               className="w-full h-48 object-cover rounded-t-lg"
             />
             <div className="p-4">
-              <h3 className="text-lg font-semibold line-clamp-2 mb-1">
+              <h3 className="text-lg text-text font-semibold line-clamp-2 mb-1">
                 {scholarship.scholarshipName}
               </h3>
-              <p className="flex items-center text-sm text-gray-600 mb-1">
+              <p className="flex items-center text-sm text-muted mb-1">
                 <FaUniversity className="mr-2 text-primary" />
                 {scholarship.universityName}
               </p>
-              <p className="flex items-center text-sm text-gray-600 mb-2">
+              <p className="flex items-center text-sm text-muted mb-2">
                 <FaMapMarkerAlt className="mr-2 text-primary" />
                 {scholarship.city}, {scholarship.country}
               </p>
-              <p className="flex items-center text-sm text-gray-600 mb-1">
+              <p className="flex items-center text-sm text-muted mb-1">
                 <FaCalendar className="mr-2 text-primary" />
                 {new Date(scholarship.deadline).toLocaleDateString()}
               </p>

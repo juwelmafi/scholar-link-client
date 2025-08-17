@@ -4,10 +4,10 @@ const Newsletter = () => {
   return (
     <div className="px-4 py-16 mx-auto max-w-7xl md:px-8 lg:py-20">
       <div className="max-w-2xl mx-auto text-center mb-10">
-        <h2 className="mb-4 text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl">
+        <h2 className="mb-4 text-3xl font-bold leading-none tracking-tight text-text sm:text-4xl">
           Subscribe to our <span className="text-primary">Newsletter</span>
         </h2>
-        <p className="text-base text-gray-600 md:text-lg">
+        <p className="text-base text-muted md:text-lg">
           Get the latest scholarships, updates, and opportunities directly in
           your inbox. No spam, only valuable insights.
         </p>

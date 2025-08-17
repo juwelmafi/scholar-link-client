@@ -35,7 +35,7 @@ const TopScholarshipSection = () => {
         {topScholarships.map((scholarship) => (
           <div
             key={scholarship._id}
-            className="rounded-lg shadow-md hover:shadow-lg transition duration-300 bg-white"
+            className="rounded-lg shadow-md hover:shadow-lg transition duration-300 bg-base-100"
           >
             <img
               src={scholarship.universityImage}
@@ -46,16 +46,16 @@ const TopScholarshipSection = () => {
               <h3 className="text-lg font-semibold line-clamp-2 mb-1">
                 {scholarship.scholarshipName}
               </h3>
-              <p className="flex items-center text-sm text-gray-600 mb-1">
+              <p className="flex items-center text-sm text-text mb-1">
                 <FaUniversity className="mr-2 text-primary" />
                 {scholarship.universityName}
               </p>
-              <p className="flex items-center text-sm text-gray-600 mb-1">
+              <p className="flex items-center text-sm text-text mb-1">
                 <FaMapMarkerAlt className="mr-2 text-primary" />
                 {scholarship.city}, {scholarship.country}
               </p>
 
-              <p className="flex items-center text-sm text-gray-600 mb-1">
+              <p className="flex items-center text-sm text-text mb-1">
                 <FaCalendar className="mr-2 text-primary" />
                 {new Date(scholarship.deadline).toLocaleDateString()}
               </p>

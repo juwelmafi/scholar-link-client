@@ -38,7 +38,7 @@ const SocialLogin = () => {
       <div className="divider">OR</div>
       <button
         onClick={handleGoogleLogIn}
-        className="btn bg-white w-full lg:w-[20rem] text-black border-[#e5e5e5]"
+        className="btn bg-white w-full lg:w-[20rem] text-text border-[#e5e5e5]"
       >
         <svg
           aria-label="Google logo"

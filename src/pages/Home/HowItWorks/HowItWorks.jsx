@@ -32,10 +32,10 @@ const HowItWorks = () => {
   return (
     <section className="px-4 py-16 mx-auto max-w-7xl md:px-8 lg:py-24">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
           How It <span className="text-primary">Works</span>
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <p className="text-muted max-w-2xl mx-auto">
           Applying for scholarships has never been this easy. Follow these simple steps and start your journey with Scholar Link.
         </p>
       </div>
@@ -44,15 +44,15 @@ const HowItWorks = () => {
         {steps.map((step) => (
           <div
             key={step.id}
-            className="bg-white shadow-md rounded-2xl p-6 text-center border border-gray-100 hover:shadow-lg transition"
+            className="bg-base-100 shadow-md rounded-2xl p-6 text-center hover:shadow-lg transition"
           >
             <div className="flex items-center justify-center mb-4">
               <div className="p-4 bg-emerald-50 rounded-full">{step.icon}</div>
             </div>
-            <h3 className="text-lg font-semibold text-gray-800 mb-2">
+            <h3 className="text-lg font-semibold text-text mb-2">
               {step.title}
             </h3>
-            <p className="text-gray-600 text-sm">{step.desc}</p>
+            <p className="text-muted text-sm">{step.desc}</p>
           </div>
         ))}
       </div>

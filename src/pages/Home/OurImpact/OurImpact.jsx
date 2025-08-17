@@ -38,7 +38,7 @@ const OurImpact = () => {
   ];
 
   return (
-    <div className="bg-gray-100  py-12">
+    <div className=" py-12">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-8">
           Our <span className="text-primary">Impact</span>
@@ -47,7 +47,7 @@ const OurImpact = () => {
           {stats.map((s, i) => (
             <div
               key={i}
-              className="text-center  px-6 py-8 bg-white  rounded shadow"
+              className="text-center  px-6 py-8 bg-base-100  rounded shadow"
             >
               <div className="flex justify-center mb-4">{s.icon}</div>
               <h3 className="text-4xl font-bold lg:text-5xl xl:text-6xl text-primary">

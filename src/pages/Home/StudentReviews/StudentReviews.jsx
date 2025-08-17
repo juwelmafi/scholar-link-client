@@ -36,7 +36,7 @@ const StudentReviews = () => {
           <h2 className="text-2xl md:text-3xl font-bold mb-2">
             What Our <span className="text-primary">Students Say</span>
           </h2>
-          <p className="text-gray-600">
+          <p className="text-text">
             Hear from students who secured scholarships and global education
             opportunities.
           </p>
@@ -75,20 +75,20 @@ const StudentReviews = () => {
       >
         {reviews.map((review, index) => (
           <SwiperSlide key={index}>
-            <div className="container flex flex-col w-full max-w-lg p-2 md:p-6 mx-auto rounded-md bg-white text-gray-800 shadow-md">
+            <div className="container flex flex-col w-full max-w-lg p-2 md:p-6 mx-auto rounded-md bg-base-100 text-text shadow-md">
               <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                   <img
                     src={review.userImage}
                     alt={review.userName}
-                    className="object-cover w-12 h-12 rounded-full bg-gray-200"
+                    className="object-cover w-12 h-12 rounded-full"
                   />
                   <div>
                     <h4 className="font-bold text-sm md:text-base">{review.userName.split(" ")[0]}</h4>
-                    <p className="text-xs text-gray-500 line-clamp-1">
+                    <p className="text-xs line-clamp-1">
                       {review.universityName}
                     </p>
-                    <p className="text-xs text-gray-400 line-clamp-1">
+                    <p className="text-xs line-clamp-1">
                       {new Date(review.date).toLocaleString()}
                     </p>
                   </div>
@@ -99,7 +99,7 @@ const StudentReviews = () => {
                 </div>
               </div>
 
-              <div className="p-4 text-sm text-gray-600">
+              <div className="p-4 text-sm text-muted">
                 <p className="line-clamp-3">{review.comment}</p>
               </div>
             </div>
