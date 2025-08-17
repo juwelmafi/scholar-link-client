@@ -19,6 +19,7 @@ import Logo from "../shared/Logo";
 
 const DashLayout = () => {
   const { role, roleLoading } = useUserRole();
+
   useEffect(() => {
     document.title = `Dashboard | ScholarLink`;
     return () => {
@@ -50,7 +51,9 @@ const DashLayout = () => {
                 </svg>
               </label>
             </div>
-            <div className="flex-1 text-white font-bold text-2xl text-center">Dashboard</div>
+            <div className="flex-1 text-white font-bold text-2xl text-center">
+              Dashboard
+            </div>
           </div>
 
           {/* Page Content */}
@@ -66,7 +69,7 @@ const DashLayout = () => {
           ></label>
           <ul className="menu p-4 md:w-72 w-54 min-h-full bg-base-200 text-base-content">
             {/* Sidebar Items */}
-            <li>
+            <li className="flex">
               <Logo></Logo>
             </li>
 

@@ -138,7 +138,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navItems}</ul>
         </div>
         <div className="navbar-end">
-          <label className="swap swap-rotate cursor-pointer">
+          <label className="swap swap-rotate mr-5 cursor-pointer">
             {/* this hidden checkbox controls the state */}
             <input
               type="checkbox"

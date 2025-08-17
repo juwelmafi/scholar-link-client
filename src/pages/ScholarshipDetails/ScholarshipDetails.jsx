@@ -130,7 +130,7 @@ const ScholarshipDetails = () => {
           {reviews.length > 0 ? (
             reviews.map((review) => (
               <SwiperSlide key={review._id}>
-                <div className="container flex flex-col w-full max-w-lg p-2 md:p-6 mx-auto rounded-md bg-white text-gray-800 shadow-md">
+                <div className="container flex flex-col w-full max-w-lg p-2 md:p-6 mx-auto rounded-md bg-base-100 text-text shadow-md">
                   <div className="flex items-center gap-3 mb-3">
                     <img
                       src={review.userImage}
@@ -139,7 +139,7 @@ const ScholarshipDetails = () => {
                     />
                     <div>
                       <p className="font-semibold">{review.userName}</p>
-                      <p className="text-xs text-gray-500">
+                      <p className="text-xs text-muted">
                         {new Date(review.date).toLocaleDateString()}
                       </p>
                     </div>
@@ -148,14 +148,14 @@ const ScholarshipDetails = () => {
                     <FaStar className="mr-1" />
                     <span>{review.rating} / 5</span>
                   </div>
-                  <p className="text-sm text-gray-700 line-clamp-4">
+                  <p className="text-sm text-muted line-clamp-4">
                     {review.comment}
                   </p>
                 </div>
               </SwiperSlide>
             ))
           ) : (
-            <p className="text-center col-span-full text-gray-500 py-10">
+            <p className="text-center col-span-full text-muted py-10">
               No reviews yet for this scholarship.
             </p>
           )}

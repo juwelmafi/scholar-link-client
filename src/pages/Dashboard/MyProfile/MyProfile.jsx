@@ -51,25 +51,25 @@ const MyProfile = () => {
           </div>
         </div>
 
-        <div className="p-4 md:p-8 pt-10 md:pt-20 bg-white">
+        <div className="p-4 md:p-8 pt-10 md:pt-20 bg-base-100">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-gray-800">
+              <h2 className="text-xl md:text-2xl font-bold text-text">
                 {user?.displayName || "Not Available"}
               </h2>
-              <p className="text-sm text-gray-500">Student</p>
-              <p className="text-sm text-gray-500">Aspiring for scholarship in aborad.</p>
+              <p className="text-sm text-muted">Student</p>
+              <p className="text-sm text-muted">Aspiring for scholarship in aborad.</p>
             </div>
             <div className="md:text-right mt-2 md:mt-0">
-              <p className="text-sm text-gray-500">{user?.email}</p>
-              <p className="text-sm text-gray-500">+91 000 000 0000</p>
+              <p className="text-sm text-muted">{user?.email}</p>
+              <p className="text-sm text-muted">+91 000 000 0000</p>
               <div className="mt-2 flex flex-col items-start md:items-end">
                 <div className="w-32 h-2 bg-gray-200 rounded-full">
                   <div className="h-2 bg-primary rounded-full" style={{ width: "80%" }}>
 
                   </div>
                 </div>
-                <p className="text-xs text-gray-500 mt-1">Profile Strength: 80%</p>
+                <p className="text-xs text-muted mt-1">Profile Strength: 80%</p>
               </div>
             </div>
           </div>
@@ -77,14 +77,14 @@ const MyProfile = () => {
           {/* Applications and Role */}
           <div className="mt-8 space-y-2">
             {applications.length > 0 && (
-              <div className="flex items-center gap-2 text-gray-700">
+              <div className="flex items-center gap-2 text-text">
                 <FaGraduationCap className="text-primary text-lg" />
                 <span>You applied in <strong className="text-primary">{applications.length}</strong> scholarships.</span>
               </div>
             )}
 
             {!roleLoading && role !== "user" && (
-              <div className="flex items-center gap-2 text-gray-700">
+              <div className="flex items-center gap-2 text-text">
                 <FaShieldAlt className="text-primary text-lg" />
                 <span className="capitalize">{role}</span>
               </div>

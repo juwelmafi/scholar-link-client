@@ -1,11 +1,12 @@
 import React from "react";
+import { FeatureItem } from "./FeaturedItem";
 
 const AboutUs = () => {
   return (
     <div className="px-4 py-20 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-28">
       {/* Header Section */}
       <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-        <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+        <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-text sm:text-4xl md:mx-auto">
           <span className="relative inline-block">
             <svg
               viewBox="0 0 52 24"
@@ -29,7 +30,7 @@ const AboutUs = () => {
           </span>{" "}
           – Connecting Students to Opportunities
         </h2>
-        <p className="text-base text-gray-700 md:text-lg">
+        <p className="text-base text-muted md:text-lg">
           Scholar Link is a scholarship management platform dedicated to helping 
           students achieve their academic dreams by connecting them with global 
           opportunities, financial support, and resources.
@@ -74,31 +75,5 @@ const AboutUs = () => {
   );
 };
 
-// Reusable Feature Item
-const FeatureItem = ({ title, desc }) => (
-  <div className="flex flex-col max-w-md sm:flex-row">
-    <div className="mb-4 mr-4">
-      <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
-        <svg
-          className="w-8 h-8 text-primary sm:w-10 sm:h-10"
-          stroke="currentColor"
-          viewBox="0 0 52 52"
-        >
-          <polygon
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            fill="none"
-            points="29 13 14 29 25 29 23 39 38 23 27 23"
-          />
-        </svg>
-      </div>
-    </div>
-    <div>
-      <h6 className="mb-3 text-xl font-bold leading-5">{title}</h6>
-      <p className="text-sm text-gray-700">{desc}</p>
-    </div>
-  </div>
-);
 
 export default AboutUs;
