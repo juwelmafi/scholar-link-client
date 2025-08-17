@@ -55,7 +55,7 @@ const AdminAnalytics = () => {
       </h2>
       <div className="grid w-full grid-cols-1 lg:grid-cols-2 gap-6">
         {/* 1. Bar Chart: Applications per Scholarship */}
-        <div className="bg-white shadow rounded p-4">
+        <div className="bg-base-200 shadow rounded p-4">
           <h3 className="text-xl font-semibold mb-4">
             Applications per Subject Category
           </h3>
@@ -71,7 +71,7 @@ const AdminAnalytics = () => {
         </div>
 
         {/* 2. Pie Chart: User Role Distribution */}
-        <div className="bg-white shadow rounded p-4">
+        <div className="bg-base-200 shadow rounded p-4">
           <h3 className="text-xl font-semibold mb-4">User Role Distribution</h3>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
