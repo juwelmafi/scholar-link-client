@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 
+
+
 const Contact = () => {
+  useEffect(() => {
+      document.title = `Contact Us | ScholarLink`;
+      return () => {
+        document.title = "ScholarLink";
+      };
+    }, []);
   return (
     <div className="px-4 py-20 mx-auto max-w-7xl md:px-8 lg:py-28">
       {/* Header */}

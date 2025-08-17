@@ -38,7 +38,7 @@ const OurImpact = () => {
   ];
 
   return (
-    <div className=" py-12">
+    <div className="py-12">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-8">
           Our <span className="text-primary">Impact</span>
@@ -60,7 +60,7 @@ const OurImpact = () => {
                   suffix="+"
                 />
               </h3>
-              <p className="text-sm font-medium tracking-widest text-gray-800  uppercase mt-2">
+              <p className="text-sm font-medium tracking-widest text-text  uppercase mt-2">
                 {s.label}
               </p>
             </div>

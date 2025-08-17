@@ -30,7 +30,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="px-4 py-16 mx-auto max-w-7xl md:px-8 lg:py-24">
+    <section className="px-4 py-16 mx-auto max-w-7xl md:px-8">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
           How It <span className="text-primary">Works</span>

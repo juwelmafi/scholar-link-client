@@ -2,7 +2,7 @@ import React from "react";
 
 const Newsletter = () => {
   return (
-    <div className="px-4 py-16 mx-auto max-w-7xl md:px-8 lg:py-20">
+    <div className="px-4 py-16 mx-auto max-w-7xl md:px-8">
       <div className="max-w-2xl mx-auto text-center mb-10">
         <h2 className="mb-4 text-3xl font-bold leading-none tracking-tight text-text sm:text-4xl">
           Subscribe to our <span className="text-primary">Newsletter</span>

@@ -26,7 +26,7 @@ const TopScholarshipSection = () => {
   }
 
   return (
-    <section className="py-10 px-4 max-w-7xl mx-auto">
+    <section className="pt-20 pb-10 px-4 max-w-7xl mx-auto">
       <h2 className="text-3xl font-bold mb-8 text-center">
         Top <span className="text-primary">Scholarships</span>
       </h2>

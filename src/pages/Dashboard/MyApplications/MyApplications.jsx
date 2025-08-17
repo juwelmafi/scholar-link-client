@@ -431,7 +431,7 @@ const MyApplications = () => {
       {isDetailsModalOpen && selectedScholarship && (
         <dialog open className="modal modal-bottom sm:modal-middle">
           <div className="modal-box max-w-2xl">
-            <h3 className="font-bold text-lg text-center mb-4 text-emerald-600">
+            <h3 className="font-bold text-lg text-center mb-4 text-primary">
               {selectedScholarship.scholarshipName}
             </h3>
 

@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FeatureItem } from "./FeaturedItem";
 
 const AboutUs = () => {
+
+  useEffect(() => {
+      document.title = `About Us | ScholarLink`;
+      return () => {
+        document.title = "ScholarLink";
+      };
+    }, []);
+
   return (
     <div className="px-4 py-20 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-28">
       {/* Header Section */}
